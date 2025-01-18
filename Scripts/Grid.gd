@@ -5,32 +5,47 @@ var grid := []
 var width := 20
 var height := 20
 var tsize := 16
-var directions = [
+var directions := [
 	Vector2i(1,0),	Vector2i(-1,0),	Vector2i(0,1),	Vector2i(0,-1)
 ]
+var snapRange := 3
 
 @onready var tilemap: TileMap = get_node("TileMap")
+@onready var tilePlacementIndicator: Sprite2D = get_node("TilePlacementIndicator")
 
 func _ready():
 	for i in range(width):
 		grid.append([])
 		for j in range(height):
 			grid[i].append(Tile.new(i, j))
-	grid[10][10].terrain = BasicVine.new(10, 10)
+	grid[5][5].terrain = BasicVine.new(5, 5)
 
 func _process(_delta):
-	if Input.is_action_pressed("left_click"):
-		var pos = global_to_coord(get_global_mouse_position())
-		var canPlace = false
-		for d in directions:
-			if getTerrain(pos.x+d.x, pos.y+d.y) is Vine:
-				canPlace = true
-		if canPlace: place(pos.x, pos.y)
+	# Render tile placement indicator:
+	var pos = global_to_coord(get_global_mouse_position())
+	var closestValidPos = getClosestValidTile(pos)
+	if closestValidPos != null and !(getTerrain(pos.x, pos.y) is Vine):
+		tilePlacementIndicator.visible = true
+		tilePlacementIndicator.position = coord_to_global(closestValidPos) + Vector2(tsize/2, tsize/2)
+		if Input.is_action_pressed("left_click"):
+			place(closestValidPos.x, closestValidPos.y)
+	else:
+		tilePlacementIndicator.visible = false
 	
 	# Render tiles:
 	for i in range(width):
 		for j in range(height):
 			tilemap.set_cells_terrain_connect(0, [Vector2i(i,j)], 0, getTerrain(i,j).terrainIndex)
+
+func getClosestValidTile(pos: Vector2i):
+	var closestValidPos = null
+	var closestDist = INF
+	for d in directions:
+		for r in range(1, snapRange+1):
+			if getTerrain(pos.x+d.x*r, pos.y+d.y*r) is Vine and r < closestDist:
+				closestValidPos = pos+d*(r-1)
+				closestDist = r
+	return closestValidPos
 
 func getTerrain(x:int, y:int) -> Terrain:
 	if x >= width or x < 0: return null
@@ -44,3 +59,6 @@ func place(x:int, y:int):
 
 func global_to_coord(v: Vector2) -> Vector2i:
 	return Vector2i(floor(v.x/tsize), floor(v.y/tsize))
+
+func coord_to_global(v: Vector2i) -> Vector2:
+	return Vector2(v.x*tsize, v.y*tsize)
