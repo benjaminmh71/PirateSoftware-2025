@@ -3,14 +3,13 @@ extends CharacterBody2D
 
 @onready var grid: Grid = get_parent().get_parent()
 @onready var attackTimer: Timer = get_node("AttackTimer")
+@onready var constrictTimer: Timer = get_node("ConstrictTimer")
 
 var health: float
-var damage: float
+var attackDamage: float
 var speed: float
 var attackRange: float
-
-func _ready():
-	pass # Replace with function body.
+var constrictDist = 12
 
 
 func _process(_delta):
@@ -30,7 +29,17 @@ func _process(_delta):
 	
 	move_and_slide()
 	
+	# Constriction:
+	if dist <= constrictDist and constrictTimer.is_stopped():
+		damage(closestVine.constrictDamage)
+		constrictTimer.start()
+	
 	# Attacking:
 	if closestVine != null and dist <= attackRange and attackTimer.is_stopped():
-		closestVine.damage(damage)
+		closestVine.damage(attackDamage)
 		attackTimer.start()
+
+func damage(d: float):
+	health -= d
+	if health < 0:
+		queue_free()
