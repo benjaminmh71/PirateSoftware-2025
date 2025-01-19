@@ -41,5 +41,5 @@ func _process(_delta):
 
 func damage(d: float):
 	health -= d
-	if health < 0:
+	if health <= 0:
 		queue_free()

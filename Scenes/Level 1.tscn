@@ -1,16 +1,17 @@
-[gd_scene load_steps=14 format=3 uid="uid://brj3g4ljx7hm0"]
+[gd_scene load_steps=16 format=3 uid="uid://brj3g4ljx7hm0"]
 
-[ext_resource type="Script" path="res://Scripts/Grid.gd" id="1_i420h"]
-[ext_resource type="Script" path="res://Scripts/CameraControl.gd" id="2_b176v"]
-[ext_resource type="Texture2D" uid="uid://cshc8ige3mk40" path="res://Assets/vines.png" id="2_heywu"]
-[ext_resource type="Texture2D" uid="uid://c5s0vceyp238o" path="res://Assets/roads.png" id="3_cn3ta"]
-[ext_resource type="Texture2D" uid="uid://cecbwkmco2fky" path="res://Assets/Grass.png" id="4_y42fy"]
-[ext_resource type="Texture2D" uid="uid://bvy0ghl8sg4ad" path="res://Assets/TilePlacementIndicator.png" id="5_wj3wa"]
-[ext_resource type="Script" path="res://Scripts/EnemyManager.gd" id="7_2b06c"]
-[ext_resource type="PackedScene" uid="uid://byn1cb28q6rje" path="res://Enemies/Basic Enemy.tscn" id="7_rwq3h"]
+[ext_resource type="Script" path="res://Scripts/Grid.gd" id="1_23fgj"]
+[ext_resource type="Script" path="res://Scripts/CameraControl.gd" id="2_ne5ip"]
+[ext_resource type="Texture2D" uid="uid://c5s0vceyp238o" path="res://Assets/roads.png" id="3_ueyml"]
+[ext_resource type="Texture2D" uid="uid://cecbwkmco2fky" path="res://Assets/Grass.png" id="4_3xp2r"]
+[ext_resource type="Texture2D" uid="uid://cshc8ige3mk40" path="res://Assets/vines.png" id="5_ob53r"]
+[ext_resource type="Texture2D" uid="uid://lti6orhxmb4e" path="res://Assets/Heart.png" id="6_b8d8v"]
+[ext_resource type="Texture2D" uid="uid://bvy0ghl8sg4ad" path="res://Assets/TilePlacementIndicator.png" id="7_oi41x"]
+[ext_resource type="Script" path="res://Scripts/EnemyManager.gd" id="8_270qb"]
+[ext_resource type="PackedScene" uid="uid://byn1cb28q6rje" path="res://Enemies/Basic Enemy.tscn" id="9_58at5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tlpgq"]
-texture = ExtResource("3_cn3ta")
+texture = ExtResource("3_ueyml")
 texture_region_size = Vector2i(48, 48)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -94,7 +95,7 @@ texture_region_size = Vector2i(48, 48)
 3:3/0/terrains_peering_bit/left_side = 1
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y2gas"]
-texture = ExtResource("4_y42fy")
+texture = ExtResource("4_3xp2r")
 texture_region_size = Vector2i(48, 48)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -111,28 +112,50 @@ sources/0 = SubResource("TileSetAtlasSource_tlpgq")
 sources/1 = SubResource("TileSetAtlasSource_y2gas")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u0h1w"]
-texture = ExtResource("2_heywu")
+texture = ExtResource("5_ob53r")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrain = 0
+0:0/0/metadata/_better_terrain = {
+"type": 1
+}
 1:0/0 = 0
 1:0/0/terrain_set = 0
 1:0/0/terrain = 0
 1:0/0/terrains_peering_bit/bottom_side = 0
 1:0/0/terrains_peering_bit/top_side = 0
+1:0/0/metadata/_better_terrain = {
+4: [0],
+12: [0],
+"type": 1
+}
 2:0/0 = 0
 2:0/0/terrain_set = 0
 2:0/0/terrain = 0
 2:0/0/terrains_peering_bit/bottom_side = 0
+2:0/0/metadata/_better_terrain = {
+4: [0],
+"type": 1
+}
 3:0/0 = 0
 3:0/0/terrain_set = 0
 3:0/0/terrain = 0
 3:0/0/terrains_peering_bit/top_side = 0
+3:0/0/metadata/_better_terrain = {
+12: [0],
+"type": 1
+}
 0:1/0 = 0
 0:1/0/terrain_set = 0
 0:1/0/terrain = 0
 0:1/0/terrains_peering_bit/right_side = 0
 0:1/0/terrains_peering_bit/left_side = 0
+0:1/0/metadata/_better_terrain = {
+0: [0],
+8: [0],
+"type": 1
+}
+1:1/next_alternative_id = 2
 1:1/0 = 0
 1:1/0/terrain_set = 0
 1:1/0/terrain = 0
@@ -140,73 +163,160 @@ texture = ExtResource("2_heywu")
 1:1/0/terrains_peering_bit/bottom_side = 0
 1:1/0/terrains_peering_bit/left_side = 0
 1:1/0/terrains_peering_bit/top_side = 0
+1:1/0/metadata/_better_terrain = {
+0: [0],
+4: [0],
+8: [0],
+12: [0],
+"type": 1
+}
 2:1/0 = 0
 2:1/0/terrain_set = 0
 2:1/0/terrain = 0
 2:1/0/terrains_peering_bit/right_side = 0
 2:1/0/terrains_peering_bit/bottom_side = 0
 2:1/0/terrains_peering_bit/left_side = 0
+2:1/0/metadata/_better_terrain = {
+0: [0],
+4: [0],
+8: [0],
+"type": 1
+}
 3:1/0 = 0
 3:1/0/terrain_set = 0
 3:1/0/terrain = 0
 3:1/0/terrains_peering_bit/right_side = 0
 3:1/0/terrains_peering_bit/left_side = 0
 3:1/0/terrains_peering_bit/top_side = 0
+3:1/0/metadata/_better_terrain = {
+0: [0],
+8: [0],
+12: [0],
+"type": 1
+}
 0:2/0 = 0
 0:2/0/terrain_set = 0
 0:2/0/terrain = 0
 0:2/0/terrains_peering_bit/left_side = 0
+0:2/0/metadata/_better_terrain = {
+8: [0],
+"type": 1
+}
 1:2/0 = 0
 1:2/0/terrain_set = 0
 1:2/0/terrain = 0
 1:2/0/terrains_peering_bit/bottom_side = 0
 1:2/0/terrains_peering_bit/left_side = 0
 1:2/0/terrains_peering_bit/top_side = 0
+1:2/0/metadata/_better_terrain = {
+4: [0],
+8: [0],
+12: [0],
+"type": 1
+}
 2:2/0 = 0
 2:2/0/terrain_set = 0
 2:2/0/terrain = 0
 2:2/0/terrains_peering_bit/bottom_side = 0
 2:2/0/terrains_peering_bit/left_side = 0
+2:2/0/metadata/_better_terrain = {
+4: [0],
+8: [0],
+"type": 1
+}
 3:2/0 = 0
 3:2/0/terrain_set = 0
 3:2/0/terrain = 0
 3:2/0/terrains_peering_bit/left_side = 0
 3:2/0/terrains_peering_bit/top_side = 0
+3:2/0/metadata/_better_terrain = {
+8: [0],
+12: [0],
+"type": 1
+}
 0:3/0 = 0
 0:3/0/terrain_set = 0
 0:3/0/terrain = 0
 0:3/0/terrains_peering_bit/right_side = 0
+0:3/0/metadata/_better_terrain = {
+0: [0],
+"type": 1
+}
 1:3/0 = 0
 1:3/0/terrain_set = 0
 1:3/0/terrain = 0
 1:3/0/terrains_peering_bit/right_side = 0
 1:3/0/terrains_peering_bit/bottom_side = 0
 1:3/0/terrains_peering_bit/top_side = 0
+1:3/0/metadata/_better_terrain = {
+0: [0],
+4: [0],
+12: [0],
+"type": 1
+}
 2:3/0 = 0
 2:3/0/terrain_set = 0
 2:3/0/terrain = 0
 2:3/0/terrains_peering_bit/right_side = 0
 2:3/0/terrains_peering_bit/bottom_side = 0
+2:3/0/metadata/_better_terrain = {
+0: [0],
+4: [0],
+"type": 1
+}
 3:3/0 = 0
 3:3/0/terrain_set = 0
 3:3/0/terrain = 0
 3:3/0/terrains_peering_bit/right_side = 0
 3:3/0/terrains_peering_bit/top_side = 0
+3:3/0/metadata/_better_terrain = {
+0: [0],
+12: [0],
+"type": 1
+}
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_18lpw"]
+texture = ExtResource("6_b8d8v")
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 1
+0:0/0/metadata/_better_terrain = {
+"type": 2
+}
 
 [sub_resource type="TileSet" id="TileSet_w8vq1"]
 terrain_set_0/mode = 2
 terrain_set_0/terrain_0/name = "Vines"
 terrain_set_0/terrain_0/color = Color(0.333333, 0.603922, 0.117647, 1)
+terrain_set_0/terrain_1/name = "Heart 1"
+terrain_set_0/terrain_1/color = Color(0.827451, 0, 0.184314, 1)
 sources/0 = SubResource("TileSetAtlasSource_u0h1w")
+sources/1 = SubResource("TileSetAtlasSource_18lpw")
+metadata/_better_terrain = {
+"decoration": ["Decoration", Color(0.411765, 0.411765, 0.411765, 1), 3, [], {
+"path": "res://addons/better-terrain/icons/Decoration.svg"
+}],
+"terrains": [["Vines", Color(0.537255, 0.945098, 0.52549, 1), 2, [], {
+"coord": Vector2i(1, 1),
+"source_id": 0
+}], ["BasicVine", Color(0, 0.545098, 0.239216, 1), 0, [0], {
+"coord": Vector2i(0, 0),
+"source_id": 0
+}], ["Heart", Color(0.738218, 0.191108, 0.341885, 1), 0, [0], {
+"coord": Vector2i(0, 0),
+"source_id": 1
+}]],
+"version": "0.2"
+}
 
 [node name="Grid" type="Node2D"]
-script = ExtResource("1_i420h")
+script = ExtResource("1_23fgj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(144, 81)
 position_smoothing_enabled = true
-position_smoothing_speed = 8.0
-script = ExtResource("2_b176v")
+position_smoothing_speed = 20.0
+script = ExtResource("2_ne5ip")
 
 [node name="BackgroundTileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_2b6wa")
@@ -219,12 +329,12 @@ format = 2
 
 [node name="TilePlacementIndicator" type="Sprite2D" parent="."]
 visible = false
-texture = ExtResource("5_wj3wa")
+texture = ExtResource("7_oi41x")
 
 [node name="EnemyManager" type="Node" parent="."]
-script = ExtResource("7_2b06c")
+script = ExtResource("8_270qb")
 
-[node name="BasicEnemy" parent="EnemyManager" instance=ExtResource("7_rwq3h")]
+[node name="BasicEnemy" parent="EnemyManager" instance=ExtResource("9_58at5")]
 position = Vector2(17, 18)
 
 [node name="WaveTimer" type="Timer" parent="EnemyManager"]
