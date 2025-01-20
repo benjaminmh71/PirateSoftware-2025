@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var sprite = get_node("AnimatedSprite2D")
 @onready var attackTimer: Timer = get_node("AttackTimer")
 @onready var constrictTimer: Timer = get_node("ConstrictTimer")
+@onready var navTimer: Timer = get_node("NavTimer")
 
 var health: float
 var attackDamage: float
@@ -12,7 +13,8 @@ var speed: float
 var attackRange: float
 var constrictDist := 12
 var standAnimation := "stand_down"
-
+var path = []
+var pathIndex = 1
 
 func _process(_delta):
 	# Movement:
@@ -24,7 +26,15 @@ func _process(_delta):
 			closestVine = v
 			dist = length
 	if closestVine != null and dist > attackRange:
-		var target = grid.coord_to_global(Vector2i(closestVine.x, closestVine.y))
+		if navTimer.is_stopped():
+			path = grid.astar.get_point_path(grid.global_to_coord(position), Vector2i(closestVine.x, closestVine.y))
+			pathIndex = 1
+			navTimer.start()
+		if path.size() == 1: pathIndex = 0
+		if ((global_position - (path[pathIndex] + Vector2(8, 8))).length() < 8
+			and pathIndex < path.size()-1):
+				pathIndex += 1
+		var target = path[pathIndex] + Vector2(8, 8)
 		velocity = (target - global_position).normalized() * speed
 	else:
 		velocity = Vector2.ZERO

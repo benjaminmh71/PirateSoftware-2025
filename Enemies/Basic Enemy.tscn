@@ -163,14 +163,18 @@ radius = 4.0
 height = 12.0
 
 [node name="BasicEnemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
+motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_1mks2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_88wmh")
 animation = &"walk_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_v24s6")
 
@@ -179,4 +183,8 @@ one_shot = true
 
 [node name="ConstrictTimer" type="Timer" parent="."]
 wait_time = 0.1
+one_shot = true
+
+[node name="NavTimer" type="Timer" parent="."]
+wait_time = 0.5
 one_shot = true

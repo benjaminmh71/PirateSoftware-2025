@@ -10,6 +10,7 @@ var directions := [
 ]
 var snapRange := 3
 var vines: Dictionary
+var astar := AStarGrid2D.new()
 
 @onready var tilemap: TileMap = get_node("TileMap")
 @onready var tilePlacementIndicator: Sprite2D = get_node("TilePlacementIndicator")
@@ -25,15 +26,32 @@ func _ready():
 		for j in range(height):
 			if BetterTerrain.get_cell(tilemap, 0, Vector2i(i,j)) == 3:
 				place(i, j, Wall)
+			if BetterTerrain.get_cell(tilemap, 0, Vector2i(i,j)) == 5:
+				place(i, j, Roof)
 			if BetterTerrain.get_cell(tilemap, 0, Vector2i(i,j)) == 2:
 				place(i, j, Heart)
+	
+	# Initialize pathfinder:
+	astar.region = Rect2i(0, 0, width, height)
+	astar.cell_size = Vector2i(tsize, tsize)
+	astar.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_ONLY_IF_NO_OBSTACLES
+	astar.update()
+	for i in range(width):
+		for j in range(height):
+			if getTerrain(i, j).impassable:
+				astar.set_point_solid(Vector2i(i, j))
+			else:
+				for d in directions:
+					if getTerrain(i+d.x, j+d.y).impassable:
+						astar.set_point_weight_scale(Vector2i(i, j), 1.2)
+
 
 func _process(_delta):
 	# Render tile placement indicator:
 	var pos = global_to_coord(get_global_mouse_position())
 	var closestValidPos = getClosestValidTile(pos)
 	if closestValidPos != null and !(getTerrain(pos.x, pos.y) is Vine or 
-		getTerrain(closestValidPos.x, closestValidPos.y) is Wall):
+		getTerrain(closestValidPos.x, closestValidPos.y).impassable):
 		tilePlacementIndicator.visible = true
 		tilePlacementIndicator.position = coord_to_global(closestValidPos)
 		if Input.is_action_pressed("left_click"):
@@ -59,8 +77,8 @@ func getClosestValidTile(pos: Vector2i):
 	return closestValidPos
 
 func getTerrain(x:int, y:int) -> Terrain:
-	if x >= width or x < 0: return null
-	if y >= height or y < 0: return null
+	if x >= width or x < 0: return Wall.new(x,y)
+	if y >= height or y < 0: return Wall.new(x,y)
 	return grid[x][y].terrain
 
 func place(x:int, y:int, terrainClass):
