@@ -2,6 +2,7 @@ class_name Enemy
 extends CharacterBody2D
 
 @onready var grid: Grid = get_parent().get_parent()
+@onready var sprite = get_node("AnimatedSprite2D")
 @onready var attackTimer: Timer = get_node("AttackTimer")
 @onready var constrictTimer: Timer = get_node("ConstrictTimer")
 
@@ -9,7 +10,8 @@ var health: float
 var attackDamage: float
 var speed: float
 var attackRange: float
-var constrictDist = 12
+var constrictDist := 12
+var standAnimation := "stand_down"
 
 
 func _process(_delta):
@@ -26,6 +28,21 @@ func _process(_delta):
 		velocity = (target - global_position).normalized() * speed
 	else:
 		velocity = Vector2.ZERO
+	
+	if abs(velocity.x) > abs(velocity.y) and velocity.x > 0:
+		sprite.play("walk_right")
+		standAnimation = "stand_right"
+	elif abs(velocity.x) > abs(velocity.y) and velocity.x < 0:
+		sprite.play("walk_left")
+		standAnimation = "stand_left"
+	elif abs(velocity.x) < abs(velocity.y) and velocity.y > 0:
+		sprite.play("walk_down")
+		standAnimation = "stand_down"
+	elif abs(velocity.x) < abs(velocity.y) and velocity.y < 0:
+		sprite.play("walk_up")
+		standAnimation = "stand_up"
+	else:
+		sprite.play(standAnimation)
 	
 	move_and_slide()
 	
