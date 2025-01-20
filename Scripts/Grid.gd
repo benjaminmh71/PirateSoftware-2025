@@ -2,8 +2,8 @@ class_name Grid
 extends Node2D
 
 var grid := []
-var width := 20
-var height := 20
+var width := 39
+var height := 39
 var tsize := 16
 var directions := [
 	Vector2i(1,0),	Vector2i(-1,0),	Vector2i(0,1),	Vector2i(0,-1)
@@ -19,13 +19,21 @@ func _ready():
 		grid.append([])
 		for j in range(height):
 			grid[i].append(Tile.new(i, j))
-	place(5, 5, Heart)
+	
+	# Initialize walls:
+	for i in range(width):
+		for j in range(height):
+			if BetterTerrain.get_cell(tilemap, 0, Vector2i(i,j)) == 3:
+				place(i, j, Wall)
+			if BetterTerrain.get_cell(tilemap, 0, Vector2i(i,j)) == 2:
+				place(i, j, Heart)
 
 func _process(_delta):
 	# Render tile placement indicator:
 	var pos = global_to_coord(get_global_mouse_position())
 	var closestValidPos = getClosestValidTile(pos)
-	if closestValidPos != null and !(getTerrain(pos.x, pos.y) is Vine):
+	if closestValidPos != null and !(getTerrain(pos.x, pos.y) is Vine or 
+		getTerrain(closestValidPos.x, closestValidPos.y) is Wall):
 		tilePlacementIndicator.visible = true
 		tilePlacementIndicator.position = coord_to_global(closestValidPos)
 		if Input.is_action_pressed("left_click"):
@@ -55,12 +63,13 @@ func getTerrain(x:int, y:int) -> Terrain:
 	if y >= height or y < 0: return null
 	return grid[x][y].terrain
 
-func place(x:int, y:int, vineClass):
+func place(x:int, y:int, terrainClass):
 	if x >= width or x < 0: return
 	if y >= height or y < 0: return
-	grid[x][y].terrain = vineClass.new(x, y)
-	vines[grid[x][y].terrain] = true
-	grid[x][y].terrain.died.connect(onVineDeath)
+	grid[x][y].terrain = terrainClass.new(x, y)
+	if grid[x][y].terrain is Vine: 
+		vines[grid[x][y].terrain] = true
+		grid[x][y].terrain.died.connect(onVineDeath)
 
 func onVineDeath(vine: Vine):
 	grid[vine.x][vine.y].terrain = Empty.new(vine.x, vine.y)
