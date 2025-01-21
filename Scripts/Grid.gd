@@ -20,6 +20,7 @@ var WaterAmount = 11
 @onready var tilemap: TileMap = get_node("TileMap")
 @onready var fogmap: TileMap = get_node("Fog")
 @onready var tilePlacementIndicator: Sprite2D = get_node("TilePlacementIndicator")
+@onready var hud:HUD = get_node("UI")
 
 func _ready():
 	for i in range(width):
@@ -66,7 +67,7 @@ func _process(_delta):
 		tilePlacementIndicator.visible = true
 		tilePlacementIndicator.position = coord_to_global(closestValidPos)
 		if Input.is_action_pressed("left_click"):
-			place(closestValidPos.x, closestValidPos.y, BasicVine)
+			place(closestValidPos.x, closestValidPos.y, hud.selected)
 	else:
 		tilePlacementIndicator.visible = false
 	# Render tiles:
@@ -121,13 +122,15 @@ func getTile(x:int, y:int) -> Tile:
 func place(x:int, y:int, terrainClass):
 	if x >= width or x < 0: return
 	if y >= height or y < 0: return
-	if WaterAmount < 1: return
-	grid[x][y].terrain = terrainClass.new(x, y)
-	if grid[x][y].terrain is Vine: 
-		vines[grid[x][y].terrain] = true
-		grid[x][y].terrain.died.connect(onVineDeath)
+	var terrain = terrainClass.new(x, y)
+	if terrain is Vine:
+		if WaterAmount < terrain.cost: return 
+	grid[x][y].terrain = terrain
+	if terrain is Vine:
+		vines[terrain] = true
+		terrain.died.connect(onVineDeath)
 		updateFog(Vector2i(x, y))
-		WaterAmount-=1
+		WaterAmount -= terrain.cost
 		get_node("WaterLabel").text = str(WaterAmount)
 	
 

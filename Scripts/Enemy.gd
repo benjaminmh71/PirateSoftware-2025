@@ -64,6 +64,7 @@ func _process(_delta):
 	# Attacking:
 	if closestVine != null and dist <= attackRange and attackTimer.is_stopped():
 		closestVine.damage(attackDamage)
+		damage(closestVine.thorns)
 		attackTimer.start()
 
 func damage(d: float):

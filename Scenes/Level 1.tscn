@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://brj3g4ljx7hm0"]
+[gd_scene load_steps=35 format=3 uid="uid://brj3g4ljx7hm0"]
 
 [ext_resource type="Script" path="res://Scripts/Grid.gd" id="1_23fgj"]
 [ext_resource type="Script" path="res://Scripts/CameraControl.gd" id="2_ne5ip"]
@@ -6,12 +6,16 @@
 [ext_resource type="Texture2D" uid="uid://cecbwkmco2fky" path="res://Assets/Grass.png" id="4_3xp2r"]
 [ext_resource type="Texture2D" uid="uid://cshc8ige3mk40" path="res://Assets/vines.png" id="5_ob53r"]
 [ext_resource type="Texture2D" uid="uid://lti6orhxmb4e" path="res://Assets/Heart.png" id="6_b8d8v"]
+[ext_resource type="Texture2D" uid="uid://c5oeeyr5jslrs" path="res://Assets/thick vines.png" id="6_gxjir"]
 [ext_resource type="Texture2D" uid="uid://bvy0ghl8sg4ad" path="res://Assets/TilePlacementIndicator.png" id="7_oi41x"]
 [ext_resource type="Texture2D" uid="uid://fmlfjt5du27g" path="res://Assets/Transparent.png" id="8_0tc2r"]
 [ext_resource type="Texture2D" uid="uid://cy71sthsxa621" path="res://Assets/houses.png" id="8_3jy0f"]
 [ext_resource type="Script" path="res://Scripts/EnemyManager.gd" id="8_270qb"]
 [ext_resource type="Texture2D" uid="uid://cr6rdi3o0lmp5" path="res://Assets/Fog.png" id="8_yp7t1"]
 [ext_resource type="PackedScene" uid="uid://byn1cb28q6rje" path="res://Enemies/Basic Enemy.tscn" id="9_58at5"]
+[ext_resource type="Script" path="res://Scripts/HUD.gd" id="13_x08j0"]
+[ext_resource type="Texture2D" uid="uid://dc5xh1aqrel4v" path="res://Assets/Vine Panel.png" id="13_ywoau"]
+[ext_resource type="Texture2D" uid="uid://tqjoetivao5d" path="res://Assets/ThickVine Panel.png" id="16_gf3a0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tlpgq"]
 texture = ExtResource("3_ueyml")
@@ -333,6 +337,137 @@ texture = ExtResource("5_ob53r")
 0: [0],
 12: [0],
 "type": 1
+}
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_46nt6"]
+texture = ExtResource("6_gxjir")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/metadata/_better_terrain = {
+"type": 6
+}
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/metadata/_better_terrain = {
+4: [0],
+12: [0],
+"type": 6
+}
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/metadata/_better_terrain = {
+4: [0],
+"type": 6
+}
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0/metadata/_better_terrain = {
+12: [0],
+"type": 6
+}
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/metadata/_better_terrain = {
+0: [0],
+8: [0],
+"type": 6
+}
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/metadata/_better_terrain = {
+0: [0],
+4: [0],
+8: [0],
+12: [0],
+"type": 6
+}
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0/metadata/_better_terrain = {
+0: [0],
+4: [0],
+8: [0],
+"type": 6
+}
+3:1/0 = 0
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
+3:1/0/metadata/_better_terrain = {
+0: [0],
+8: [0],
+12: [0],
+"type": 6
+}
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+0:2/0/metadata/_better_terrain = {
+8: [0],
+"type": 6
+}
+1:2/0 = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
+1:2/0/metadata/_better_terrain = {
+4: [0],
+8: [0],
+12: [0],
+"type": 6
+}
+2:2/0 = 0
+2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:2/0/physics_layer_0/angular_velocity = 0.0
+2:2/0/metadata/_better_terrain = {
+4: [0],
+8: [0],
+"type": 6
+}
+3:2/0 = 0
+3:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:2/0/physics_layer_0/angular_velocity = 0.0
+3:2/0/metadata/_better_terrain = {
+8: [0],
+12: [0],
+"type": 6
+}
+0:3/0 = 0
+0:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:3/0/physics_layer_0/angular_velocity = 0.0
+0:3/0/metadata/_better_terrain = {
+0: [0],
+"type": 6
+}
+1:3/0 = 0
+1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:3/0/physics_layer_0/angular_velocity = 0.0
+1:3/0/metadata/_better_terrain = {
+0: [0],
+4: [0],
+12: [0],
+"type": 6
+}
+2:3/0 = 0
+2:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:3/0/physics_layer_0/angular_velocity = 0.0
+2:3/0/metadata/_better_terrain = {
+0: [0],
+4: [0],
+"type": 6
+}
+3:3/0 = 0
+3:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:3/0/physics_layer_0/angular_velocity = 0.0
+3:3/0/metadata/_better_terrain = {
+0: [0],
+12: [0],
+"type": 6
 }
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_fw8gs"]
@@ -814,6 +949,7 @@ sources/0 = SubResource("TileSetAtlasSource_u0h1w")
 sources/3 = SubResource("TileSetAtlasSource_m6tbh")
 sources/4 = SubResource("TileSetAtlasSource_m7d8u")
 sources/5 = SubResource("TileSetAtlasSource_wdois")
+sources/1 = SubResource("TileSetAtlasSource_46nt6")
 metadata/_better_terrain = {
 "decoration": ["Decoration", Color(0.411765, 0.411765, 0.411765, 1), 3, [], {
 "path": "res://addons/better-terrain/icons/Decoration.svg"
@@ -833,6 +969,8 @@ metadata/_better_terrain = {
 }], ["Empty", Color(1, 1, 1, 1), 0, [], {
 "path": ""
 }], ["Roof", Color(0.737255, 0.603922, 0, 1), 0, [], {
+"path": ""
+}], ["Thick Vines", Color(0.827451, 1, 0.737255, 1), 0, [0], {
 "path": ""
 }]],
 "version": "0.2"
@@ -1140,6 +1278,50 @@ layer_0/tile_data = PackedInt32Array(1310749, 0, 0, 1376285, 0, 0, 1441821, 0, 0
 
 [node name="WaterTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("13_x08j0")
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -18.0
+offset_top = -16.0
+offset_right = 18.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+
+[node name="BasicVine" type="PanelContainer" parent="UI/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/HBoxContainer/BasicVine"]
+layout_mode = 2
+texture = ExtResource("13_ywoau")
+stretch_mode = 2
+
+[node name="Indicator" type="TextureRect" parent="UI/HBoxContainer/BasicVine"]
+layout_mode = 2
+texture = ExtResource("7_oi41x")
+stretch_mode = 2
+
+[node name="ThickVine" type="PanelContainer" parent="UI/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/HBoxContainer/ThickVine"]
+layout_mode = 2
+texture = ExtResource("16_gf3a0")
+stretch_mode = 2
+
+[node name="Indicator" type="TextureRect" parent="UI/HBoxContainer/ThickVine"]
+visible = false
+layout_mode = 2
+texture = ExtResource("7_oi41x")
+stretch_mode = 2
 
 [node name="WaterLabel" type="Label" parent="."]
 offset_right = 40.0
