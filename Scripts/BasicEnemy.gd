@@ -3,6 +3,6 @@ extends Enemy
 
 func _ready():
 	health = 10
-	damage = 1
-	speed = 5
-	attackRange = 8
+	attackDamage = 1
+	speed = 10
+	attackRange = 14
