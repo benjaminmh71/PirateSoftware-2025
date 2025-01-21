@@ -13,6 +13,7 @@ var vines: Dictionary
 var astar := AStarGrid2D.new()
 
 @onready var tilemap: TileMap = get_node("TileMap")
+@onready var fogmap: TileMap = get_node("Fog")
 @onready var tilePlacementIndicator: Sprite2D = get_node("TilePlacementIndicator")
 
 func _ready():
@@ -20,6 +21,9 @@ func _ready():
 		grid.append([])
 		for j in range(height):
 			grid[i].append(Tile.new(i, j))
+	
+	# Initialize fog:
+	fogmap.visible = true
 	
 	# Initialize walls:
 	for i in range(width):
@@ -30,6 +34,7 @@ func _ready():
 				place(i, j, Roof)
 			if BetterTerrain.get_cell(tilemap, 0, Vector2i(i,j)) == 2:
 				place(i, j, Heart)
+				updateFog(Vector2i(i, j))
 	
 	# Initialize pathfinder:
 	astar.region = Rect2i(0, 0, width, height)
@@ -44,7 +49,6 @@ func _ready():
 				for d in directions:
 					if getTerrain(i+d.x, j+d.y).impassable:
 						astar.set_point_weight_scale(Vector2i(i, j), 1.2)
-
 
 func _process(_delta):
 	# Render tile placement indicator:
@@ -66,6 +70,27 @@ func _process(_delta):
 				BetterTerrain.set_cell(tilemap, 0, Vector2i(i, j), getTerrain(i,j).terrainIndex)
 				BetterTerrain.update_terrain_cell(tilemap, 0, Vector2i(i, j))
 
+func updateFog(pos: Vector2i, deadVine = null):
+	if getTerrain(pos.x, pos.y) is Vine:
+		var v = getTerrain(pos.x, pos.y)
+		for i in range(-v.fogReveal, v.fogReveal):
+			for j in range(-v.fogReveal, v.fogReveal):
+				if Vector2i(i, j).length() > v.fogReveal: continue
+				BetterTerrain.set_cell(fogmap, 0, Vector2i(v.x+i, v.y+j), -1)
+				BetterTerrain.update_terrain_cell(fogmap, 0, Vector2i(v.x+i, v.y+j))
+				var tile = getTile(pos.x+i, pos.y+j)
+				if tile == null: continue
+				tile.revealVines.push_back(v)
+	else:
+		for i in range(-deadVine.fogReveal, deadVine.fogReveal):
+			for j in range(-deadVine.fogReveal, deadVine.fogReveal):
+				var tile = getTile(pos.x+i, pos.y+j)
+				if tile == null: continue
+				tile.revealVines.erase(deadVine)
+				if (tile.revealVines.is_empty()):
+					BetterTerrain.set_cell(fogmap, 0, Vector2i(pos.x+i, pos.y+j), 0)
+					BetterTerrain.update_terrain_cell(fogmap, 0, Vector2i(pos.x+i, pos.y+j))
+
 func getClosestValidTile(pos: Vector2i):
 	var closestValidPos = null
 	var closestDist = INF
@@ -81,6 +106,11 @@ func getTerrain(x:int, y:int) -> Terrain:
 	if y >= height or y < 0: return Wall.new(x,y)
 	return grid[x][y].terrain
 
+func getTile(x:int, y:int) -> Tile:
+	if x >= width or x < 0: return null
+	if y >= height or y < 0: return null
+	return grid[x][y]
+
 func place(x:int, y:int, terrainClass):
 	if x >= width or x < 0: return
 	if y >= height or y < 0: return
@@ -88,6 +118,7 @@ func place(x:int, y:int, terrainClass):
 	if grid[x][y].terrain is Vine: 
 		vines[grid[x][y].terrain] = true
 		grid[x][y].terrain.died.connect(onVineDeath)
+		updateFog(Vector2i(x, y))
 
 func onVineDeath(vine: Vine):
 	grid[vine.x][vine.y].terrain = Empty.new(vine.x, vine.y)
@@ -110,6 +141,8 @@ func onVineDeath(vine: Vine):
 		
 		for v in toDestroy:
 			massDestroy(v)
+		
+		updateFog(Vector2i(vine.x, vine.y), vine)
 
 func check_connection(tiles, start) -> bool:
 	if not tiles:

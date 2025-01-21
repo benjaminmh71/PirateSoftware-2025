@@ -3,6 +3,7 @@ extends Terrain
 
 var health: float
 var constrictDamage: float
+var fogReveal := 5.5
 signal died(vine)
 
 func damage(d):
