@@ -12,6 +12,11 @@ var snapRange := 3
 var vines: Dictionary
 var astar := AStarGrid2D.new()
 
+#Water
+@onready var WaterTimer = $WaterTimer
+var WaterRate = .5
+var WaterAmount = 11
+
 @onready var tilemap: TileMap = get_node("TileMap")
 @onready var fogmap: TileMap = get_node("Fog")
 @onready var tilePlacementIndicator: Sprite2D = get_node("TilePlacementIndicator")
@@ -64,13 +69,13 @@ func _process(_delta):
 			place(closestValidPos.x, closestValidPos.y, BasicVine)
 	else:
 		tilePlacementIndicator.visible = false
-	
 	# Render tiles:
 	for i in range(width):
 		for j in range(height):
 			if BetterTerrain.get_cell(tilemap, 0, Vector2i(i,j)) != getTerrain(i, j).terrainIndex:
 				BetterTerrain.set_cell(tilemap, 0, Vector2i(i, j), getTerrain(i,j).terrainIndex)
 				BetterTerrain.update_terrain_cell(tilemap, 0, Vector2i(i, j))
+	
 
 func updateFog(pos: Vector2i, deadVine = null):
 	if getTerrain(pos.x, pos.y) is Vine:
@@ -116,11 +121,15 @@ func getTile(x:int, y:int) -> Tile:
 func place(x:int, y:int, terrainClass):
 	if x >= width or x < 0: return
 	if y >= height or y < 0: return
+	if WaterAmount < 1: return
 	grid[x][y].terrain = terrainClass.new(x, y)
 	if grid[x][y].terrain is Vine: 
 		vines[grid[x][y].terrain] = true
 		grid[x][y].terrain.died.connect(onVineDeath)
 		updateFog(Vector2i(x, y))
+		WaterAmount-=1
+		get_node("WaterLabel").text = str(WaterAmount)
+	
 
 func onVineDeath(vine: Vine):
 	grid[vine.x][vine.y].terrain = Empty.new(vine.x, vine.y)
@@ -187,3 +196,7 @@ func global_to_coord(v: Vector2) -> Vector2i:
 
 func coord_to_global(v: Vector2i) -> Vector2:
 	return Vector2(v.x*tsize+tsize/2, v.y*tsize+tsize/2)
+
+
+func _on_water_timer_timeout():
+	WaterAmount += WaterRate
