@@ -10,10 +10,15 @@ var directions := [
 ]
 var snapRange := 3
 var vines: Dictionary
+<<<<<<< HEAD
 var water = 11
 var WaterRate = .5
 @onready var WaterTimer := $WaterTimer 
 var astar := AStarGrid2D.new()
+=======
+var astar := AStarGrid2D.new()
+
+>>>>>>> a754e58c0ee4674d28c6fd506e6f51453a5be6ea
 @onready var tilemap: TileMap = get_node("TileMap")
 @onready var fogmap: TileMap = get_node("Fog")
 @onready var tilePlacementIndicator: Sprite2D = get_node("TilePlacementIndicator")
@@ -23,8 +28,11 @@ func _ready():
 		grid.append([])
 		for j in range(height):
 			grid[i].append(Tile.new(i, j))
+<<<<<<< HEAD
 	place(5, 5)
 	get_node("WaterAmountLabel").text = str(water)
+=======
+>>>>>>> a754e58c0ee4674d28c6fd506e6f51453a5be6ea
 	
 	# Initialize fog:
 	fogmap.visible = true
@@ -72,8 +80,11 @@ func _process(_delta):
 	# Render tiles:
 	for i in range(width):
 		for j in range(height):
+<<<<<<< HEAD
 			tilemap.set_cells_terrain_connect(0, [Vector2i(i,j)], 0, getTerrain(i,j).terrainIndex)
 	get_node("WaterAmountLabel").text = str(water)
+=======
+>>>>>>> a754e58c0ee4674d28c6fd506e6f51453a5be6ea
 			if BetterTerrain.get_cell(tilemap, 0, Vector2i(i,j)) != getTerrain(i, j).terrainIndex:
 				BetterTerrain.set_cell(tilemap, 0, Vector2i(i, j), getTerrain(i,j).terrainIndex)
 				BetterTerrain.update_terrain_cell(tilemap, 0, Vector2i(i, j))
@@ -122,11 +133,14 @@ func getTile(x:int, y:int) -> Tile:
 func place(x:int, y:int, terrainClass):
 	if x >= width or x < 0: return
 	if y >= height or y < 0: return
+<<<<<<< HEAD
 	if water<1: return
 	grid[x][y].terrain = BasicVine.new(x, y)
 	vines[grid[x][y].terrain] = true
 	grid[x][y].terrain.died.connect(onVineDeath)
 	water -= 1
+=======
+>>>>>>> a754e58c0ee4674d28c6fd506e6f51453a5be6ea
 	grid[x][y].terrain = terrainClass.new(x, y)
 	if grid[x][y].terrain is Vine: 
 		vines[grid[x][y].terrain] = true
