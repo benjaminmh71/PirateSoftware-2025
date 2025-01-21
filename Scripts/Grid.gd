@@ -10,7 +10,9 @@ var directions := [
 ]
 var snapRange := 3
 var vines: Dictionary
-
+var water = 11
+var WaterRate = .5
+@onready var WaterTimer := $WaterTimer 
 @onready var tilemap: TileMap = get_node("TileMap")
 @onready var tilePlacementIndicator: Sprite2D = get_node("TilePlacementIndicator")
 
@@ -20,6 +22,7 @@ func _ready():
 		for j in range(height):
 			grid[i].append(Tile.new(i, j))
 	place(5, 5)
+	get_node("WaterAmountLabel").text = str(water)
 
 func _process(_delta):
 	# Render tile placement indicator:
@@ -33,10 +36,13 @@ func _process(_delta):
 	else:
 		tilePlacementIndicator.visible = false
 	
+	#Water Timer
+		
 	# Render tiles:
 	for i in range(width):
 		for j in range(height):
 			tilemap.set_cells_terrain_connect(0, [Vector2i(i,j)], 0, getTerrain(i,j).terrainIndex)
+	get_node("WaterAmountLabel").text = str(water)
 
 func getClosestValidTile(pos: Vector2i):
 	var closestValidPos = null
@@ -56,9 +62,11 @@ func getTerrain(x:int, y:int) -> Terrain:
 func place(x:int, y:int):
 	if x >= width or x < 0: return
 	if y >= height or y < 0: return
+	if water<1: return
 	grid[x][y].terrain = BasicVine.new(x, y)
 	vines[grid[x][y].terrain] = true
 	grid[x][y].terrain.died.connect(onVineDeath)
+	water -= 1
 
 func onVineDeath(vine: Vine):
 	grid[vine.x][vine.y].terrain = Empty.new(vine.x, vine.y)
@@ -69,3 +77,7 @@ func global_to_coord(v: Vector2) -> Vector2i:
 
 func coord_to_global(v: Vector2i) -> Vector2:
 	return Vector2(v.x*tsize+tsize/2, v.y*tsize+tsize/2)
+
+
+func _on_water_timer_timeout():
+	water+=WaterRate
