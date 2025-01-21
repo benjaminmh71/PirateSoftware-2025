@@ -81,8 +81,8 @@ func _process(_delta):
 func updateFog(pos: Vector2i, deadVine = null):
 	if getTerrain(pos.x, pos.y) is Vine:
 		var v = getTerrain(pos.x, pos.y)
-		for i in range(-v.fogReveal, v.fogReveal):
-			for j in range(-v.fogReveal, v.fogReveal):
+		for i in range(-v.fogReveal, v.fogReveal+1):
+			for j in range(-v.fogReveal, v.fogReveal+1):
 				if Vector2i(i, j).length() > v.fogReveal: continue
 				BetterTerrain.set_cell(fogmap, 0, Vector2i(v.x+i, v.y+j), -1)
 				BetterTerrain.update_terrain_cell(fogmap, 0, Vector2i(v.x+i, v.y+j))
@@ -90,8 +90,8 @@ func updateFog(pos: Vector2i, deadVine = null):
 				if tile == null: continue
 				tile.revealVines.push_back(v)
 	else:
-		for i in range(-deadVine.fogReveal, deadVine.fogReveal):
-			for j in range(-deadVine.fogReveal, deadVine.fogReveal):
+		for i in range(-deadVine.fogReveal, deadVine.fogReveal+1):
+			for j in range(-deadVine.fogReveal, deadVine.fogReveal+1):
 				var tile = getTile(pos.x+i, pos.y+j)
 				if tile == null: continue
 				tile.revealVines.erase(deadVine)
