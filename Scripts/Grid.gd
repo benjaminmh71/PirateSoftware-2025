@@ -32,6 +32,8 @@ func _ready():
 				place(i, j, Wall)
 			if BetterTerrain.get_cell(tilemap, 0, Vector2i(i,j)) == 5:
 				place(i, j, Roof)
+			if BetterTerrain.get_cell(tilemap, 0, Vector2i(i,j)) == 1:
+				place(i, j, BasicVine)
 			if BetterTerrain.get_cell(tilemap, 0, Vector2i(i,j)) == 2:
 				place(i, j, Heart)
 				updateFog(Vector2i(i, j))
