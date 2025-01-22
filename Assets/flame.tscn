@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhsdtxx1y5xp"]
+
+[sub_resource type="Gradient" id="Gradient_hcdau"]
+colors = PackedColorArray(0.676898, 0.0136619, 0, 1, 0.850827, 0.78019, 0, 1)
+
+[node name="flame" type="CPUParticles2D"]
+amount = 40
+emission_shape = 1
+emission_sphere_radius = 1.0
+spread = 24.86
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+scale_amount_min = 4.0
+scale_amount_max = 5.0
+color_ramp = SubResource("Gradient_hcdau")
