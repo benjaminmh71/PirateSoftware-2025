@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlfmr7ik23kly"
-path="res://.godot/imported/poison plant.png-670bc699e3fb26336d57eade6cb686a0.ctex"
+uid="uid://n5ih6np27b1c"
+path="res://.godot/imported/eradicated.png-7a000c69932e3d19e039199ae270ef98.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/poison plant.png"
-dest_files=["res://.godot/imported/poison plant.png-670bc699e3fb26336d57eade6cb686a0.ctex"]
+source_file="res://Assets/eradicated.png"
+dest_files=["res://.godot/imported/eradicated.png-7a000c69932e3d19e039199ae270ef98.ctex"]
 
 [params]
 
