@@ -2,8 +2,8 @@ class_name Grid
 extends Node2D
 
 var grid := []
-var width := 39
-var height := 39
+var width := 45
+var height := 45
 var tsize := 16
 var directions := [
 	Vector2i(1,0),	Vector2i(-1,0),	Vector2i(0,1),	Vector2i(0,-1)
@@ -15,7 +15,7 @@ var astar := AStarGrid2D.new()
 #Water
 @onready var WaterTimer = $WaterTimer
 var WaterRate = .5
-var WaterAmount = 11
+var WaterAmount = 15
 
 @onready var tilemap: TileMap = get_node("TileMap")
 @onready var fogmap: TileMap = get_node("Fog")
@@ -38,6 +38,8 @@ func _ready():
 				place(i, j, Wall)
 			if BetterTerrain.get_cell(tilemap, 0, Vector2i(i,j)) == 5:
 				place(i, j, Roof)
+			if BetterTerrain.get_cell(tilemap, 0, Vector2i(i,j)) == 9:
+				place(i, j, Fence)
 			if BetterTerrain.get_cell(tilemap, 0, Vector2i(i,j)) == 1:
 				place(i, j, BasicVine)
 			if BetterTerrain.get_cell(tilemap, 0, Vector2i(i,j)) == 2:

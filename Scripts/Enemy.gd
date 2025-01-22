@@ -41,6 +41,9 @@ func _process(_delta):
 	if closestVine != null and dist > attackRange:
 		if navTimer.is_stopped():
 			path = grid.astar.get_point_path(grid.global_to_coord(position), Vector2i(closestVine.x, closestVine.y))
+			if path.size() == 0:
+				damage(999)
+				return
 			pathIndex = 1
 			navTimer.start()
 		if path.size() == 1: pathIndex = 0
