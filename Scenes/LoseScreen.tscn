@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://qrg12n72eatp"]
+[gd_scene load_steps=5 format=3 uid="uid://qrg12n72eatp"]
 
+[ext_resource type="Texture2D" uid="uid://n5ih6np27b1c" path="res://Assets/eradicated.png" id="1_drtjg"]
 [ext_resource type="Script" path="res://Scripts/RestartButton.gd" id="1_vwe0a"]
+[ext_resource type="Texture2D" uid="uid://14mpcdsvd8q0" path="res://Assets/TryAgain.png" id="2_0gxda"]
 
 [sub_resource type="Theme" id="Theme_y2jdi"]
 
@@ -14,13 +16,15 @@ grow_vertical = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.25
-anchor_bottom = 0.25
-offset_left = 206.0
-offset_top = 116.0
-offset_right = -17.0
-offset_bottom = -23.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -103.0
+offset_right = 144.0
+offset_bottom = 103.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -28,15 +32,14 @@ grow_vertical = 2
 layout_mode = 2
 theme = SubResource("Theme_y2jdi")
 
-[node name="LossLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "You lose"
-horizontal_alignment = 1
-vertical_alignment = 1
+texture = ExtResource("1_drtjg")
 
 [node name="RestartButton" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "Restart"
+icon = ExtResource("2_0gxda")
+icon_alignment = 1
 script = ExtResource("1_vwe0a")
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/RestartButton" to="CenterContainer/VBoxContainer/RestartButton" method="_on_pressed"]
