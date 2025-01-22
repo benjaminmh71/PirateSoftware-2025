@@ -1,7 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://byn1cb28q6rje"]
+[gd_scene load_steps=22 format=3 uid="uid://byn1cb28q6rje"]
 
 [ext_resource type="Script" path="res://Scripts/BasicEnemy.gd" id="1_1mks2"]
 [ext_resource type="Texture2D" uid="uid://dghpqr2jcs81e" path="res://Assets/emnemysheet.png" id="2_f78p7"]
+[ext_resource type="PackedScene" uid="uid://b8bej3aimunmu" path="res://Assets/flame.tscn" id="3_g8yg2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lf730"]
 atlas = ExtResource("2_f78p7")
@@ -172,7 +173,7 @@ script = ExtResource("1_1mks2")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_88wmh")
-animation = &"walk_down"
+animation = &"stand_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
@@ -192,3 +193,5 @@ one_shot = true
 [node name="NavTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="Emitter" parent="." instance=ExtResource("3_g8yg2")]

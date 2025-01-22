@@ -16,6 +16,8 @@ var constrictDist := 12
 var standAnimation := "stand_down"
 var path = []
 var pathIndex = 1
+var closestVine = null
+var dist = INF
 
 func _process(_delta):
 	# Poison:
@@ -29,8 +31,8 @@ func _process(_delta):
 				poisonTimer.start()
 	
 	# Movement:
-	var closestVine = null
-	var dist = INF
+	closestVine = null
+	dist = INF
 	for v in grid.vines.keys():
 		var length = (global_position - grid.coord_to_global(Vector2i(v.x, v.y))).length()
 		if length < dist:
