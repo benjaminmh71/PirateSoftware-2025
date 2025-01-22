@@ -84,11 +84,12 @@ func updateFog(pos: Vector2i, deadVine = null):
 		for i in range(-v.fogReveal, v.fogReveal+1):
 			for j in range(-v.fogReveal, v.fogReveal+1):
 				if Vector2i(i, j).length() > v.fogReveal: continue
-				BetterTerrain.set_cell(fogmap, 0, Vector2i(v.x+i, v.y+j), -1)
-				BetterTerrain.update_terrain_cell(fogmap, 0, Vector2i(v.x+i, v.y+j))
 				var tile = getTile(pos.x+i, pos.y+j)
 				if tile == null: continue
 				tile.revealVines.push_back(v)
+				if !tile.poisonPlants.is_empty(): continue
+				BetterTerrain.set_cell(fogmap, 0, Vector2i(v.x+i, v.y+j), -1)
+				BetterTerrain.update_terrain_cell(fogmap, 0, Vector2i(v.x+i, v.y+j))
 	else:
 		for i in range(-deadVine.fogReveal, deadVine.fogReveal+1):
 			for j in range(-deadVine.fogReveal, deadVine.fogReveal+1):
@@ -132,7 +133,14 @@ func place(x:int, y:int, terrainClass):
 		updateFog(Vector2i(x, y))
 		WaterAmount -= terrain.cost
 		get_node("WaterLabel").text = str(WaterAmount)
-	
+		if terrain is PoisonPlant:
+			for i in range(-1, 2):
+				for j in range(-1, 2):
+					var tile = getTile(x+i, y+j)
+					if tile == null: continue
+					tile.poisonPlants.push_back(terrain)
+					BetterTerrain.set_cell(fogmap, 0, Vector2i(x+i, y+j), 1)
+					BetterTerrain.update_terrain_cell(fogmap, 0, Vector2i(x+i, y+j))
 
 func onVineDeath(vine: Vine):
 	grid[vine.x][vine.y].terrain = Empty.new(vine.x, vine.y)
@@ -156,6 +164,15 @@ func onVineDeath(vine: Vine):
 		for v in toDestroy:
 			massDestroy(v)
 		
+		if vine is PoisonPlant:
+			for i in range(-1, 2):
+				for j in range(-1, 2):
+					var tile = getTile(vine.x+i, vine.y+j)
+					if tile == null: continue
+					tile.poisonPlants.erase(vine)
+					if (tile.poisonPlants.is_empty()):
+						BetterTerrain.set_cell(fogmap, 0, Vector2i(vine.x+i, vine.y+j), -1)
+						BetterTerrain.update_terrain_cell(fogmap, 0, Vector2i(vine.x+i, vine.y+j))
 		updateFog(Vector2i(vine.x, vine.y), vine)
 
 func check_connection(tiles, start) -> bool:

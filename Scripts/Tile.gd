@@ -5,6 +5,7 @@ var x:int
 var y:int
 var terrain: Terrain
 var revealVines:Array = []
+var poisonPlants:Array = []
 
 func _init(_x:int, _y:int):
 	x = _x

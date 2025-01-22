@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var sprite = get_node("AnimatedSprite2D")
 @onready var attackTimer: Timer = get_node("AttackTimer")
 @onready var constrictTimer: Timer = get_node("ConstrictTimer")
+@onready var poisonTimer: Timer = get_node("PoisonTimer")
 @onready var navTimer: Timer = get_node("NavTimer")
 
 var health: float
@@ -17,6 +18,16 @@ var path = []
 var pathIndex = 1
 
 func _process(_delta):
+	# Poison:
+	var tile = grid.getTile(grid.global_to_coord(global_position).x, grid.global_to_coord(global_position).y)
+	var speedFactor = 1 # For poison slow
+	if tile != null:
+		if !tile.poisonPlants.is_empty():
+			speedFactor = PoisonPlant.poisonSlow
+			if poisonTimer.is_stopped():
+				damage(PoisonPlant.poisonDamage)
+				poisonTimer.start()
+	
 	# Movement:
 	var closestVine = null
 	var dist = INF
@@ -35,7 +46,7 @@ func _process(_delta):
 			and pathIndex < path.size()-1):
 				pathIndex += 1
 		var target = path[pathIndex] + Vector2(8, 8)
-		velocity = (target - global_position).normalized() * speed
+		velocity = (target - global_position).normalized() * speed * speedFactor
 	else:
 		velocity = Vector2.ZERO
 	

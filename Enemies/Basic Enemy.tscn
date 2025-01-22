@@ -185,6 +185,10 @@ one_shot = true
 wait_time = 0.1
 one_shot = true
 
+[node name="PoisonTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
 [node name="NavTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
