@@ -11,10 +11,13 @@ var directions := [
 var snapRange := 3
 var vines: Dictionary
 var astar := AStarGrid2D.new()
+var hydrants := 0
+var controlledHydrants := 0
 
 #Water
 @onready var WaterTimer = $WaterTimer
-var WaterRate = .5
+var WaterRate = 0.5
+var hydrantRateChange = 0.25
 var WaterAmount = 15
 
 @onready var tilemap: TileMap = get_node("TileMap")
@@ -59,6 +62,12 @@ func _ready():
 				for d in directions:
 					if getTerrain(i+d.x, j+d.y).impassable:
 						astar.set_point_weight_scale(Vector2i(i, j), 1.2)
+	
+	# Initialize hydrants:
+	for h in get_node("Hydrants").get_children():
+		var pos = global_to_coord(h.global_position)
+		getTile(pos.x, pos.y).hasHydrant = true
+		hydrants += 1
 
 func _process(_delta):
 	# Render tile placement indicator:
@@ -135,6 +144,8 @@ func place(x:int, y:int, terrainClass):
 		updateFog(Vector2i(x, y))
 		WaterAmount -= terrain.cost
 		get_node("WaterLabel").text = str(WaterAmount)
+		if grid[x][y].hasHydrant:
+			controlledHydrants += 1
 		if terrain is PoisonPlant:
 			for i in range(-1, 2):
 				for j in range(-1, 2):
@@ -165,6 +176,9 @@ func onVineDeath(vine: Vine):
 		
 		for v in toDestroy:
 			massDestroy(v)
+		
+		if grid[vine.x][vine.y].hasHydrant:
+			controlledHydrants -= 1
 		
 		if vine is PoisonPlant:
 			for i in range(-1, 2):
@@ -221,4 +235,4 @@ func coord_to_global(v: Vector2i) -> Vector2:
 
 
 func _on_water_timer_timeout():
-	WaterAmount += WaterRate
+	WaterAmount += WaterRate + hydrantRateChange * controlledHydrants

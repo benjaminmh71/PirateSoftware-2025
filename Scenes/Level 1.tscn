@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://brj3g4ljx7hm0"]
+[gd_scene load_steps=46 format=3 uid="uid://brj3g4ljx7hm0"]
 
 [ext_resource type="Script" path="res://Scripts/Grid.gd" id="1_23fgj"]
 [ext_resource type="Script" path="res://Scripts/CameraControl.gd" id="2_ne5ip"]
@@ -16,7 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://5qesaddavxt0" path="res://Assets/eyeVines.png" id="9_2de1f"]
 [ext_resource type="Texture2D" uid="uid://bl6i05tmkantj" path="res://Assets/toxinvines.png" id="10_23mme"]
 [ext_resource type="Script" path="res://Scripts/HUD.gd" id="13_x08j0"]
+[ext_resource type="Texture2D" uid="uid://db3bo06qvpevs" path="res://Assets/fireHydrent.webp" id="13_yahkh"]
 [ext_resource type="Texture2D" uid="uid://dc5xh1aqrel4v" path="res://Assets/Vine Panel.png" id="13_ywoau"]
+[ext_resource type="Script" path="res://Scripts/Wave.gd" id="15_es430"]
 [ext_resource type="Texture2D" uid="uid://b16hn1u66yg3q" path="res://Assets/poison.png" id="16_6bfwe"]
 [ext_resource type="Texture2D" uid="uid://tqjoetivao5d" path="res://Assets/ThickVine Panel.png" id="16_gf3a0"]
 [ext_resource type="Texture2D" uid="uid://cmlu36h1k1vee" path="res://Assets/EyePlant Panel.png" id="18_fexpn"]
@@ -1844,6 +1846,24 @@ autoplay = "Beat"
 frame = 7
 frame_progress = 0.227692
 
+[node name="Hydrants" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Hydrants"]
+position = Vector2(392, 104)
+texture = ExtResource("13_yahkh")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Hydrants"]
+position = Vector2(616, 392)
+texture = ExtResource("13_yahkh")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Hydrants"]
+position = Vector2(328, 616)
+texture = ExtResource("13_yahkh")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Hydrants"]
+position = Vector2(104, 328)
+texture = ExtResource("13_yahkh")
+
 [node name="TilePlacementIndicator" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("7_oi41x")
@@ -1855,6 +1875,11 @@ script = ExtResource("8_270qb")
 [node name="WaveTimer" type="Timer" parent="EnemyManager"]
 wait_time = 10.0
 autostart = true
+
+[node name="BasicWave" type="Node" parent="EnemyManager"]
+script = ExtResource("15_es430")
+initial = Array[String](["res://Enemies/Basic Enemy.tscn", "res://Enemies/Basic Enemy.tscn", "res://Enemies/Basic Enemy.tscn"])
+change = Array[String](["res://Enemies/Basic Enemy.tscn"])
 
 [node name="Fog" type="TileMap" parent="."]
 visible = false
