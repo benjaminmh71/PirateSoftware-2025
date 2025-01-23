@@ -4,6 +4,7 @@ var prevPos: Vector2
 var dragSpeed := 20
 var keyboardSpeed := 3
 
+@onready var grid: Grid = get_parent()
 @onready var heart = get_parent().get_node("Heart")
 
 func _ready():
@@ -29,5 +30,15 @@ func _process(_delta):
 		position += Vector2.DOWN * keyboardSpeed
 	if Input.is_action_pressed("keyboard_d"):
 		position += Vector2.RIGHT * keyboardSpeed
+	
+	var size = get_viewport_rect().size
+	if global_position.x < size.x/2:
+		global_position.x = size.x/2
+	if global_position.y < size.y/2:
+		global_position.y = size.y/2
+	if global_position.x > grid.width * grid.tsize - size.x/2:
+		global_position.x = grid.width * grid.tsize - size.x/2
+	if global_position.y > grid.height * grid.tsize - size.y/2:
+		global_position.y = grid.height * grid.tsize - size.y/2
 	
 	prevPos = get_local_mouse_position()

@@ -3,6 +3,8 @@ extends Node2D
 
 @onready var waveTimer = get_node("WaveTimer")
 
+@export var enemy: Enemy
+
 var random = RandomNumberGenerator.new()
 var count = 1
 
