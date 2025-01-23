@@ -23,13 +23,6 @@ func _process(delta):
 	if Input.is_action_pressed("ui_4"):
 		index = 3
 	
-	if Input.is_action_just_released("scroll_forward"):
-		index -= 1
-		if index < 0: index = 3
-	if Input.is_action_just_released("scroll_backward"):
-		index += 1
-		if index > 3: index = 0
-	
 	if index == 0:
 		selected = BasicVine
 		resetIndicators()
