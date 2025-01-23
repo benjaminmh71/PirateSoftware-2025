@@ -8,11 +8,14 @@ extends CharacterBody2D
 @onready var poisonTimer: Timer = get_node("PoisonTimer")
 @onready var navTimer: Timer = get_node("NavTimer")
 
+@export var rallyPoint: Node2D = null
+
 var health: float
 var attackDamage: float
 var speed: float
 var attackRange: float
 var constrictDist := 12
+var rallyActivateDist = 80
 var standAnimation := "stand_down"
 var path = []
 var pathIndex = 1
@@ -38,7 +41,12 @@ func _process(_delta):
 		if length < dist:
 			closestVine = v
 			dist = length
-	if closestVine != null and dist > attackRange:
+	if closestVine != null and dist <= rallyActivateDist:
+		for e in get_parent().get_children():
+			if e is Enemy and e != self: 
+				if e.rallyPoint == rallyPoint: e.rallyPoint = null
+		rallyPoint = null
+	if closestVine != null and dist > attackRange and rallyPoint == null:
 		if navTimer.is_stopped():
 			path = grid.astar.get_point_path(grid.global_to_coord(position), Vector2i(closestVine.x, closestVine.y))
 			if path.size() == 0:

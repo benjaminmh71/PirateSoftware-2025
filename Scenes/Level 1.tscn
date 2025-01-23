@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://brj3g4ljx7hm0"]
+[gd_scene load_steps=47 format=3 uid="uid://brj3g4ljx7hm0"]
 
 [ext_resource type="Script" path="res://Scripts/Grid.gd" id="1_23fgj"]
 [ext_resource type="Script" path="res://Scripts/CameraControl.gd" id="2_ne5ip"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://Scripts/EnemyManager.gd" id="8_270qb"]
 [ext_resource type="Texture2D" uid="uid://cr6rdi3o0lmp5" path="res://Assets/Fog.png" id="8_yp7t1"]
 [ext_resource type="Texture2D" uid="uid://5qesaddavxt0" path="res://Assets/eyeVines.png" id="9_2de1f"]
+[ext_resource type="PackedScene" uid="uid://byn1cb28q6rje" path="res://Enemies/Basic Enemy.tscn" id="9_58at5"]
 [ext_resource type="Texture2D" uid="uid://bl6i05tmkantj" path="res://Assets/toxinvines.png" id="10_23mme"]
 [ext_resource type="Script" path="res://Scripts/HUD.gd" id="13_x08j0"]
 [ext_resource type="Texture2D" uid="uid://db3bo06qvpevs" path="res://Assets/fireHydrent.webp" id="13_yahkh"]
@@ -1872,14 +1873,74 @@ texture = ExtResource("7_oi41x")
 y_sort_enabled = true
 script = ExtResource("8_270qb")
 
+[node name="BasicEnemy" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("9_58at5")]
+position = Vector2(340, 97)
+rallyPoint = NodePath("../North")
+
+[node name="BasicEnemy2" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("9_58at5")]
+position = Vector2(360, 114)
+rallyPoint = NodePath("../North")
+
+[node name="BasicEnemy3" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("9_58at5")]
+position = Vector2(371, 96)
+rallyPoint = NodePath("../North")
+
+[node name="BasicEnemy4" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("9_58at5")]
+position = Vector2(624, 346)
+rallyPoint = NodePath("../East")
+
+[node name="BasicEnemy5" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("9_58at5")]
+position = Vector2(605, 361)
+rallyPoint = NodePath("../East")
+
+[node name="BasicEnemy6" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("9_58at5")]
+position = Vector2(625, 377)
+rallyPoint = NodePath("../East")
+
+[node name="BasicEnemy7" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("9_58at5")]
+position = Vector2(360, 642)
+rallyPoint = NodePath("../South")
+
+[node name="BasicEnemy8" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("9_58at5")]
+position = Vector2(345, 626)
+rallyPoint = NodePath("../South")
+
+[node name="BasicEnemy9" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("9_58at5")]
+position = Vector2(373, 625)
+rallyPoint = NodePath("../South")
+
+[node name="BasicEnemy10" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("9_58at5")]
+position = Vector2(93, 379)
+rallyPoint = NodePath("../West")
+
+[node name="BasicEnemy11" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("9_58at5")]
+position = Vector2(75, 363)
+rallyPoint = NodePath("../West")
+
+[node name="BasicEnemy12" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("9_58at5")]
+position = Vector2(94, 347)
+rallyPoint = NodePath("../West")
+
 [node name="WaveTimer" type="Timer" parent="EnemyManager"]
-wait_time = 10.0
+wait_time = 20.0
 autostart = true
 
 [node name="BasicWave" type="Node" parent="EnemyManager"]
 script = ExtResource("15_es430")
 initial = Array[String](["res://Enemies/Basic Enemy.tscn", "res://Enemies/Basic Enemy.tscn", "res://Enemies/Basic Enemy.tscn"])
 change = Array[String](["res://Enemies/Basic Enemy.tscn"])
+
+[node name="North" type="Node2D" parent="EnemyManager"]
+position = Vector2(360, 96)
+
+[node name="East" type="Node2D" parent="EnemyManager"]
+position = Vector2(625, 359)
+
+[node name="West" type="Node2D" parent="EnemyManager"]
+position = Vector2(94, 363)
+
+[node name="South" type="Node2D" parent="EnemyManager"]
+position = Vector2(359, 625)
 
 [node name="Fog" type="TileMap" parent="."]
 visible = false

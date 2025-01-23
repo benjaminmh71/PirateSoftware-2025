@@ -146,6 +146,9 @@ func place(x:int, y:int, terrainClass):
 		get_node("WaterLabel").text = str(WaterAmount)
 		if grid[x][y].hasHydrant:
 			controlledHydrants += 1
+			if controlledHydrants >= hydrants:
+				self.queue_free()
+				get_tree().root.add_child(load("res://Scenes/WinScreen.tscn").instantiate())
 		if terrain is PoisonPlant:
 			for i in range(-1, 2):
 				for j in range(-1, 2):
