@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://brj3g4ljx7hm0"]
+[gd_scene load_steps=48 format=3 uid="uid://brj3g4ljx7hm0"]
 
 [ext_resource type="Script" path="res://Scripts/Grid.gd" id="1_23fgj"]
 [ext_resource type="Script" path="res://Scripts/CameraControl.gd" id="2_ne5ip"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://tqjoetivao5d" path="res://Assets/ThickVine Panel.png" id="16_gf3a0"]
 [ext_resource type="Texture2D" uid="uid://cmlu36h1k1vee" path="res://Assets/EyePlant Panel.png" id="18_fexpn"]
 [ext_resource type="Texture2D" uid="uid://ta5omakkpbgb" path="res://Assets/PoisonPlant Panel.png" id="20_wkvo4"]
+[ext_resource type="Texture2D" uid="uid://cithbjybsmpgr" path="res://Assets/Warning Indicator.png" id="21_4psir"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tlpgq"]
 texture = ExtResource("3_ueyml")
@@ -1954,6 +1955,13 @@ autostart = true
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("13_x08j0")
 metadata/_edit_use_anchors_ = true
+
+[node name="WarningIndicator" type="TextureRect" parent="UI"]
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("21_4psir")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI"]
 anchors_preset = 7

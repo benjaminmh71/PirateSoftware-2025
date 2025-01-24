@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var constrictTimer: Timer = get_node("ConstrictTimer")
 @onready var poisonTimer: Timer = get_node("PoisonTimer")
 @onready var navTimer: Timer = get_node("NavTimer")
+@onready var camera = get_node("/root/Grid/Camera2D")
 
 @export var rallyPoint: Node2D = null
 
@@ -90,6 +91,9 @@ func _process(_delta):
 		closestVine.damage(attackDamage)
 		damage(closestVine.thorns)
 		attackTimer.start()
+		camera.attackingEnemies.push_back(self)
+	if !attackTimer.is_stopped():
+		camera.attackingEnemies.push_back(self)
 
 func damage(d: float):
 	health -= d
