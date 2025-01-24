@@ -15,6 +15,7 @@ var health: float
 var attackDamage: float
 var speed: float
 var attackRange: float
+var ranged := false
 var constrictDist := 12
 var rallyActivateDist = 80
 var standAnimation := "stand_down"
@@ -23,7 +24,7 @@ var pathIndex = 1
 var closestVine = null
 var dist = INF
 
-func _process(_delta):
+func _physics_process(_delta):
 	# Poison:
 	var tile = grid.getTile(grid.global_to_coord(global_position).x, grid.global_to_coord(global_position).y)
 	var speedFactor = 1 # For poison slow
@@ -47,7 +48,23 @@ func _process(_delta):
 			if e is Enemy and e != self: 
 				if e.rallyPoint == rallyPoint: e.rallyPoint = null
 		rallyPoint = null
-	if closestVine != null and dist > attackRange and rallyPoint == null:
+	
+	# Check los for ranged enemies:
+	var los = !ranged
+	if ranged and closestVine != null:
+		var space_state = get_world_2d().direct_space_state
+		var query = PhysicsRayQueryParameters2D.create(global_position, 
+			grid.coord_to_global(Vector2i(closestVine.x, closestVine.y)))
+		var siblings = get_parent().get_children()
+		var enemySiblings = []
+		for o in siblings:
+			if o is Enemy: enemySiblings.push_back(o)
+		query.exclude = enemySiblings
+		var result = space_state.intersect_ray(query)
+		if !result: los = true
+		if result: print(result.position)
+	
+	if closestVine != null and (dist > attackRange or !los) and rallyPoint == null:
 		if navTimer.is_stopped():
 			path = grid.astar.get_point_path(grid.global_to_coord(position), Vector2i(closestVine.x, closestVine.y))
 			if path.size() == 0:
@@ -87,9 +104,9 @@ func _process(_delta):
 		constrictTimer.start()
 	
 	# Attacking:
-	if closestVine != null and dist <= attackRange and attackTimer.is_stopped():
+	if closestVine != null and dist <= attackRange and attackTimer.is_stopped() and los:
 		closestVine.damage(attackDamage)
-		damage(closestVine.thorns)
+		if !ranged: damage(closestVine.thorns)
 		attackTimer.start()
 		camera.attackingEnemies.push_back(self)
 	if !attackTimer.is_stopped():

@@ -9,7 +9,7 @@ func _ready():
 	speed = 10
 	attackRange = 14
 
-func _process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	super(_delta)
 	
 	if closestVine != null and dist <= attackRange and !attackTimer.is_stopped():

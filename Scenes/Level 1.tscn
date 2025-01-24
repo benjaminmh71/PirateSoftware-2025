@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://brj3g4ljx7hm0"]
+[gd_scene load_steps=49 format=3 uid="uid://brj3g4ljx7hm0"]
 
 [ext_resource type="Script" path="res://Scripts/Grid.gd" id="1_23fgj"]
 [ext_resource type="Script" path="res://Scripts/CameraControl.gd" id="2_ne5ip"]
@@ -22,6 +22,7 @@
 [ext_resource type="Script" path="res://Scripts/Wave.gd" id="15_es430"]
 [ext_resource type="Texture2D" uid="uid://b16hn1u66yg3q" path="res://Assets/poison.png" id="16_6bfwe"]
 [ext_resource type="Texture2D" uid="uid://tqjoetivao5d" path="res://Assets/ThickVine Panel.png" id="16_gf3a0"]
+[ext_resource type="PackedScene" uid="uid://cg6defi6a1gea" path="res://Enemies/Gun Enemy.tscn" id="18_7pb8w"]
 [ext_resource type="Texture2D" uid="uid://cmlu36h1k1vee" path="res://Assets/EyePlant Panel.png" id="18_fexpn"]
 [ext_resource type="Texture2D" uid="uid://ta5omakkpbgb" path="res://Assets/PoisonPlant Panel.png" id="20_wkvo4"]
 [ext_resource type="Texture2D" uid="uid://cithbjybsmpgr" path="res://Assets/Warning Indicator.png" id="21_4psir"]
@@ -1942,6 +1943,10 @@ position = Vector2(94, 363)
 
 [node name="South" type="Node2D" parent="EnemyManager"]
 position = Vector2(359, 625)
+
+[node name="GunEnemy" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("18_7pb8w")]
+position = Vector2(361, 136)
+rallyPoint = NodePath("../North")
 
 [node name="Fog" type="TileMap" parent="."]
 visible = false

@@ -18,7 +18,7 @@ var controlledHydrants := 0
 @onready var WaterTimer = $WaterTimer
 var WaterRate = 0.5
 var hydrantRateChange = 0.25
-var WaterAmount = 15
+var WaterAmount = 150
 
 @onready var tilemap: TileMap = get_node("TileMap")
 @onready var fogmap: TileMap = get_node("Fog")

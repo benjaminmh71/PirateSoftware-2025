@@ -32,6 +32,7 @@ func _process(_delta):
 	var closestEnemy = null
 	var closestDist = INF
 	for e in attackingEnemies:
+		if !is_instance_valid(e): continue
 		var pos = e.global_position
 		if ((pos - global_position).length() < closestDist
 			and (pos.x < global_position.x - size.x/2 * invertedZoom 
