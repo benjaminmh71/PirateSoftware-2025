@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://brj3g4ljx7hm0"]
+[gd_scene load_steps=57 format=3 uid="uid://brj3g4ljx7hm0"]
 
 [ext_resource type="Script" path="res://Scripts/Grid.gd" id="1_23fgj"]
 [ext_resource type="Script" path="res://Scripts/CameraControl.gd" id="2_ne5ip"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://5qesaddavxt0" path="res://Assets/eyeVines.png" id="9_2de1f"]
 [ext_resource type="PackedScene" uid="uid://byn1cb28q6rje" path="res://Enemies/Basic Enemy.tscn" id="9_58at5"]
 [ext_resource type="Texture2D" uid="uid://bl6i05tmkantj" path="res://Assets/toxinvines.png" id="10_23mme"]
+[ext_resource type="Texture2D" uid="uid://dx6do1yvowgdl" path="res://Assets/Sewer Walls.png" id="10_ejvhx"]
 [ext_resource type="Script" path="res://Scripts/HUD.gd" id="13_x08j0"]
 [ext_resource type="Texture2D" uid="uid://db3bo06qvpevs" path="res://Assets/fireHydrent.webp" id="13_yahkh"]
 [ext_resource type="Texture2D" uid="uid://dc5xh1aqrel4v" path="res://Assets/Vine Panel.png" id="13_ywoau"]
@@ -1013,6 +1014,375 @@ texture = ExtResource("5_ob53r")
 "type": 2
 }
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cwgp6"]
+texture = ExtResource("10_ejvhx")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/metadata/_better_terrain = {
+"type": 10
+}
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/metadata/_better_terrain = {
+4: [10],
+12: [10],
+"type": 10
+}
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/metadata/_better_terrain = {
+4: [10],
+"type": 10
+}
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0/metadata/_better_terrain = {
+12: [10],
+"type": 10
+}
+4:0/0 = 0
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
+4:0/0/metadata/_better_terrain = {
+0: [10],
+3: [10],
+4: [10],
+8: [10],
+12: [10],
+"type": 10
+}
+5:0/0 = 0
+5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:0/0/physics_layer_0/angular_velocity = 0.0
+5:0/0/metadata/_better_terrain = {
+0: [10],
+4: [10],
+7: [10],
+8: [10],
+12: [10],
+"type": 10
+}
+6:0/0 = 0
+6:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:0/0/physics_layer_0/angular_velocity = 0.0
+6:0/0/metadata/_better_terrain = {
+0: [10],
+4: [10],
+8: [10],
+11: [10],
+12: [10],
+"type": 10
+}
+7:0/0 = 0
+7:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+7:0/0/physics_layer_0/angular_velocity = 0.0
+7:0/0/metadata/_better_terrain = {
+0: [10],
+4: [10],
+8: [10],
+12: [10],
+15: [10],
+"type": 10
+}
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/metadata/_better_terrain = {
+0: [10],
+8: [10],
+"type": 10
+}
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/metadata/_better_terrain = {
+0: [10],
+4: [10],
+8: [10],
+12: [10],
+"type": 10
+}
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0/metadata/_better_terrain = {
+0: [10],
+4: [10],
+8: [10],
+"type": 10
+}
+3:1/0 = 0
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
+3:1/0/metadata/_better_terrain = {
+0: [10],
+8: [10],
+12: [10],
+"type": 10
+}
+4:1/0 = 0
+4:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:1/0/physics_layer_0/angular_velocity = 0.0
+4:1/0/metadata/_better_terrain = {
+0: [10],
+4: [10],
+8: [10],
+11: [10],
+12: [10],
+15: [10],
+"type": 10
+}
+5:1/0 = 0
+5:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:1/0/physics_layer_0/angular_velocity = 0.0
+5:1/0/metadata/_better_terrain = {
+0: [10],
+3: [10],
+4: [10],
+7: [10],
+8: [10],
+12: [10],
+"type": 10
+}
+6:1/0 = 0
+6:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:1/0/physics_layer_0/angular_velocity = 0.0
+6:1/0/metadata/_better_terrain = {
+0: [10],
+4: [10],
+7: [10],
+8: [10],
+11: [10],
+12: [10],
+"type": 10
+}
+7:1/0 = 0
+7:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+7:1/0/physics_layer_0/angular_velocity = 0.0
+7:1/0/metadata/_better_terrain = {
+0: [10],
+3: [10],
+4: [10],
+8: [10],
+12: [10],
+15: [10],
+"type": 10
+}
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+0:2/0/metadata/_better_terrain = {
+8: [10],
+"type": 10
+}
+1:2/0 = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
+1:2/0/metadata/_better_terrain = {
+4: [10],
+8: [10],
+12: [10],
+"type": 10
+}
+2:2/0 = 0
+2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:2/0/physics_layer_0/angular_velocity = 0.0
+2:2/0/metadata/_better_terrain = {
+4: [10],
+8: [10],
+"type": 10
+}
+3:2/0 = 0
+3:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:2/0/physics_layer_0/angular_velocity = 0.0
+3:2/0/metadata/_better_terrain = {
+8: [10],
+12: [10],
+"type": 10
+}
+4:2/0 = 0
+4:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:2/0/physics_layer_0/angular_velocity = 0.0
+4:2/0/metadata/_better_terrain = {
+4: [10],
+7: [10],
+8: [10],
+"type": 10
+}
+5:2/0 = 0
+5:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:2/0/physics_layer_0/angular_velocity = 0.0
+5:2/0/metadata/_better_terrain = {
+8: [10],
+11: [10],
+12: [10],
+"type": 10
+}
+6:2/0 = 0
+6:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:2/0/physics_layer_0/angular_velocity = 0.0
+6:2/0/metadata/_better_terrain = {
+0: [10],
+3: [10],
+4: [10],
+"type": 10
+}
+7:2/0 = 0
+7:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+7:2/0/physics_layer_0/angular_velocity = 0.0
+7:2/0/metadata/_better_terrain = {
+0: [10],
+12: [10],
+15: [10],
+"type": 10
+}
+0:3/0 = 0
+0:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:3/0/physics_layer_0/angular_velocity = 0.0
+0:3/0/metadata/_better_terrain = {
+0: [10],
+"type": 10
+}
+1:3/0 = 0
+1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:3/0/physics_layer_0/angular_velocity = 0.0
+1:3/0/metadata/_better_terrain = {
+0: [10],
+4: [10],
+12: [10],
+"type": 10
+}
+2:3/0 = 0
+2:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:3/0/physics_layer_0/angular_velocity = 0.0
+2:3/0/metadata/_better_terrain = {
+0: [10],
+4: [10],
+"type": 10
+}
+3:3/0 = 0
+3:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:3/0/physics_layer_0/angular_velocity = 0.0
+3:3/0/metadata/_better_terrain = {
+0: [10],
+12: [10],
+"type": 10
+}
+4:3/0 = 0
+4:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:3/0/physics_layer_0/angular_velocity = 0.0
+4:3/0/metadata/_better_terrain = {
+0: [10],
+8: [10],
+11: [10],
+12: [10],
+15: [10],
+"type": 10
+}
+5:3/0 = 0
+5:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:3/0/physics_layer_0/angular_velocity = 0.0
+5:3/0/metadata/_better_terrain = {
+0: [10],
+3: [10],
+4: [10],
+7: [10],
+8: [10],
+"type": 10
+}
+6:3/0 = 0
+6:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:3/0/physics_layer_0/angular_velocity = 0.0
+6:3/0/metadata/_better_terrain = {
+4: [10],
+7: [10],
+8: [10],
+11: [10],
+12: [10],
+"type": 10
+}
+7:3/0 = 0
+7:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+7:3/0/physics_layer_0/angular_velocity = 0.0
+7:3/0/metadata/_better_terrain = {
+0: [10],
+3: [10],
+4: [10],
+12: [10],
+15: [10],
+"type": 10
+}
+8:0/0 = 0
+8:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+8:0/0/physics_layer_0/angular_velocity = 0.0
+8:0/0/metadata/_better_terrain = {
+0: [10],
+3: [10],
+4: [10],
+7: [10],
+8: [10],
+11: [10],
+12: [10],
+15: [10],
+"type": 10
+}
+8:1/0 = 0
+8:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+8:1/0/physics_layer_0/angular_velocity = 0.0
+8:1/0/metadata/_better_terrain = {
+0: [10],
+3: [10],
+4: [10],
+8: [10],
+11: [10],
+12: [10],
+15: [10],
+"type": 10
+}
+9:1/0 = 0
+9:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+9:1/0/physics_layer_0/angular_velocity = 0.0
+9:1/0/metadata/_better_terrain = {
+0: [10],
+3: [10],
+4: [10],
+7: [10],
+8: [10],
+12: [10],
+15: [10],
+"type": 10
+}
+10:1/0 = 0
+10:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+10:1/0/physics_layer_0/angular_velocity = 0.0
+10:1/0/metadata/_better_terrain = {
+0: [10],
+3: [10],
+4: [10],
+7: [10],
+8: [10],
+11: [10],
+12: [10],
+"type": 10
+}
+11:1/0 = 0
+11:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+11:1/0/physics_layer_0/angular_velocity = 0.0
+11:1/0/metadata/_better_terrain = {
+0: [10],
+4: [10],
+7: [10],
+8: [10],
+11: [10],
+12: [10],
+15: [10],
+"type": 10
+}
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5cbbi"]
 texture = ExtResource("8_3w720")
 0:0/0 = 0
@@ -1424,6 +1794,7 @@ sources/8 = SubResource("TileSetAtlasSource_o2cs3")
 sources/9 = SubResource("TileSetAtlasSource_2enq5")
 sources/1 = SubResource("TileSetAtlasSource_cqlvn")
 sources/2 = SubResource("TileSetAtlasSource_gxgx3")
+sources/6 = SubResource("TileSetAtlasSource_cwgp6")
 metadata/_better_terrain = {
 "decoration": ["Decoration", Color(0.411765, 0.411765, 0.411765, 1), 3, [], {
 "path": "res://addons/better-terrain/icons/Decoration.svg"
@@ -1451,6 +1822,8 @@ metadata/_better_terrain = {
 }], ["Poison Plant", Color(0.909804, 0.137255, 1, 1), 0, [0], {
 "path": ""
 }], ["Fence", Color(0.301961, 0.254902, 0.254902, 1), 0, [], {
+"path": ""
+}], ["Sewer Wall", Color(0.411765, 0.517647, 0.411765, 1), 0, [], {
 "path": ""
 }]],
 "version": "0.2"
