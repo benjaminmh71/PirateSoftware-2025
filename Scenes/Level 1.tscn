@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://brj3g4ljx7hm0"]
+[gd_scene load_steps=58 format=3 uid="uid://brj3g4ljx7hm0"]
 
 [ext_resource type="Script" path="res://Scripts/Grid.gd" id="1_23fgj"]
 [ext_resource type="Script" path="res://Scripts/CameraControl.gd" id="2_ne5ip"]
@@ -2235,6 +2235,9 @@ metadata/_better_terrain = {
 "version": "0.2"
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_0dh4e"]
+font_color = Color(0, 0, 0, 1)
+
 [node name="Grid" type="Node2D"]
 script = ExtResource("1_23fgj")
 
@@ -2507,6 +2510,30 @@ autostart = true
 script = ExtResource("13_x08j0")
 metadata/_edit_use_anchors_ = true
 
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -45.0
+offset_bottom = 50.0
+grow_horizontal = 0
+
+[node name="WaterLabel" type="Label" parent="UI/VBoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_0dh4e")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("13_yahkh")
+
+[node name="WaterSourceLabel" type="Label" parent="UI/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "0/4"
+label_settings = SubResource("LabelSettings_0dh4e")
+
 [node name="WarningIndicator" type="TextureRect" parent="UI"]
 offset_left = -16.0
 offset_top = -16.0
@@ -2581,10 +2608,6 @@ visible = false
 layout_mode = 2
 texture = ExtResource("7_oi41x")
 stretch_mode = 2
-
-[node name="WaterLabel" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
 
 [connection signal="timeout" from="EnemyManager/WaveTimer" to="EnemyManager" method="_on_wave_timer_timeout"]
 [connection signal="timeout" from="WaterTimer" to="." method="_on_water_timer_timeout"]

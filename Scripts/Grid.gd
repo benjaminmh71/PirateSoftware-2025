@@ -24,6 +24,8 @@ var WaterAmount = 15
 @onready var fogmap: TileMap = get_node("Fog")
 @onready var tilePlacementIndicator: Sprite2D = get_node("TilePlacementIndicator")
 @onready var hud:HUD = get_node("UI")
+@onready var waterLabel = hud.get_node("VBoxContainer").get_node("WaterLabel")
+@onready var waterSourceLabel = hud.get_node("VBoxContainer").get_node("HBoxContainer").get_node("WaterSourceLabel")
 
 func _ready():
 	for i in range(width):
@@ -70,6 +72,9 @@ func _ready():
 		hydrants += 1
 
 func _process(_delta):
+	waterLabel.text = "Water: " + str(floor(WaterAmount))
+	waterSourceLabel.text = ": " + str(controlledHydrants)+"/"+str(hydrants)
+	
 	# Render tile placement indicator:
 	var pos = global_to_coord(get_global_mouse_position())
 	var closestValidPos = getClosestValidTile(pos)
@@ -143,7 +148,6 @@ func place(x:int, y:int, terrainClass):
 		terrain.died.connect(onVineDeath)
 		updateFog(Vector2i(x, y))
 		WaterAmount -= terrain.cost
-		get_node("WaterLabel").text = str(WaterAmount)
 		if grid[x][y].hasHydrant:
 			controlledHydrants += 1
 			if controlledHydrants >= hydrants:
