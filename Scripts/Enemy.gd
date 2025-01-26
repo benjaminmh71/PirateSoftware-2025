@@ -62,7 +62,6 @@ func _physics_process(_delta):
 		query.exclude = enemySiblings
 		var result = space_state.intersect_ray(query)
 		if !result: los = true
-		if result: print(result.position)
 	
 	if closestVine != null and (dist > attackRange or !los) and rallyPoint == null:
 		if navTimer.is_stopped():

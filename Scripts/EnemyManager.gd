@@ -14,7 +14,6 @@ func _ready():
 			waves.push_back(n)
 		if n.name.begins_with("SpawnPoint"):
 			spawnPoints.push_back(n)
-	print(spawnPoints.size())
 
 func _on_wave_timer_timeout():
 	var wave:Wave = waves.pick_random()
@@ -24,6 +23,7 @@ func _on_wave_timer_timeout():
 		add_child(newEnemy)
 		newEnemy.global_position = spawnPoint + Vector2((random.randf()-0.5)*32, (random.randf()-0.5)*32)
 	for i in range(count):
+		if wave.change[i%wave.change.size()] == "": continue
 		var newEnemy = load(wave.change[i%wave.change.size()]).instantiate()
 		add_child(newEnemy)
 		newEnemy.global_position = spawnPoint + Vector2((random.randf()-0.5)*32, (random.randf()-0.5)*32)

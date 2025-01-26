@@ -2,8 +2,8 @@ class_name Grid
 extends Node2D
 
 var grid := []
-var width := 45
-var height := 45
+@export var width := 45
+@export var height := 45
 var tsize := 16
 var directions := [
 	Vector2i(1,0),	Vector2i(-1,0),	Vector2i(0,1),	Vector2i(0,-1)
