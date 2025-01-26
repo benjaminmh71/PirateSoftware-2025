@@ -1,5 +1,8 @@
 extends Button
 
+func _ready():
+	if LevelManager.level == LevelManager.finalLevel:
+		text = "Reload"
+
 func _on_pressed():
-	get_node("/root/WinScreen").queue_free()
-	get_tree().root.add_child(load("res://Scenes/Level 1.tscn").instantiate())
+	LevelManager.nextLevel(self)

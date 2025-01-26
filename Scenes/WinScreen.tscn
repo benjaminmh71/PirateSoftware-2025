@@ -33,7 +33,7 @@ text = "You win!"
 
 [node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "Reload"
+text = "Next Level"
 script = ExtResource("1_d87h0")
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="CenterContainer/VBoxContainer/Button" method="_on_pressed"]
