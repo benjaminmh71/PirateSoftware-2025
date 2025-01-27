@@ -2258,7 +2258,7 @@ image = SubResource("Image_swo8u")
 [sub_resource type="LabelSettings" id="LabelSettings_fopl7"]
 font_color = Color(0, 0, 0, 1)
 
-[node name="Grid" type="Node2D"]
+[node name="Grid2" type="Node2D"]
 script = ExtResource("1_jmeyu")
 width = 81
 height = 63
