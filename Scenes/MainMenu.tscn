@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://dl16tqm8aftp5"]
+[gd_scene load_steps=8 format=3 uid="uid://dl16tqm8aftp5"]
 
+[ext_resource type="Texture2D" uid="uid://o2yri03r5ao8" path="res://Assets/TitleScreen.png" id="1_1di7p"]
 [ext_resource type="Script" path="res://Scripts/StartButton.gd" id="1_s62mr"]
 [ext_resource type="Script" path="res://Scripts/QuitButton.gd" id="2_e6cko"]
 [ext_resource type="Script" path="res://Scripts/OptionsButton.gd" id="2_jqcpv"]
+[ext_resource type="Texture2D" uid="uid://n04egsgwuuy4" path="res://Assets/CommenceGrowth.png" id="2_rh5tg"]
+[ext_resource type="Texture2D" uid="uid://bl15o72a580ao" path="res://Assets/Options.png" id="4_2xcia"]
+[ext_resource type="Texture2D" uid="uid://6q6p84iw6vjl" path="res://Assets/Quit.png" id="6_864rc"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -12,39 +16,49 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -23.0
-offset_top = -20.0
-offset_right = 23.0
-offset_bottom = 20.0
+offset_left = -144.0
+offset_top = -135.0
+offset_right = 144.0
+offset_bottom = 135.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.9, 0.9)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_1di7p")
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="StartButton" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="StartButton" type="TextureButton" parent="VBoxContainer/CenterContainer"]
 layout_mode = 2
-text = "Start
-"
+texture_normal = ExtResource("2_rh5tg")
 script = ExtResource("1_s62mr")
 
-[node name="OptionsButton" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer"]
 layout_mode = 2
-text = "Options"
+
+[node name="OptionsButton" type="TextureButton" parent="VBoxContainer/CenterContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("4_2xcia")
 script = ExtResource("2_jqcpv")
 
-[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="CenterContainer3" type="CenterContainer" parent="VBoxContainer"]
 layout_mode = 2
-text = "Quit"
+
+[node name="QuitButton" type="TextureButton" parent="VBoxContainer/CenterContainer3"]
+layout_mode = 2
+texture_normal = ExtResource("6_864rc")
 script = ExtResource("2_e6cko")
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/StartButton" to="CenterContainer/VBoxContainer/StartButton" method="_on_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/OptionsButton" to="CenterContainer/VBoxContainer/OptionsButton" method="_on_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/QuitButton" to="CenterContainer/VBoxContainer/QuitButton" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer/StartButton" to="VBoxContainer/CenterContainer/StartButton" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer2/OptionsButton" to="VBoxContainer/CenterContainer2/OptionsButton" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer3/QuitButton" to="VBoxContainer/CenterContainer3/QuitButton" method="_on_pressed"]

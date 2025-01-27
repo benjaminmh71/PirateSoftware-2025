@@ -259,4 +259,4 @@ func coord_to_global(v: Vector2i) -> Vector2:
 
 
 func _on_water_timer_timeout():
-	WaterAmount += WaterRate
+	WaterAmount += WaterRate + controlledHydrants * hydrantRateChange
