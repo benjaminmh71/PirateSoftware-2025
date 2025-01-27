@@ -79,7 +79,7 @@ func _ready():
 
 func _process(_delta):
 	waterLabel.text = str(floor(WaterAmount))
-	waterSourceLabel.text = ": " + str(controlledHydrants)+"/"+str(hydrants)
+	waterSourceLabel.text = ":" + str(controlledHydrants)+"/"+str(hydrants)
 	
 	# Render tile placement indicator:
 	var pos = global_to_coord(get_global_mouse_position())
