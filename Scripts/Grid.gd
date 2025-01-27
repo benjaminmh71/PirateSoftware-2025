@@ -35,7 +35,7 @@ var WaterAmount = 10
 @onready var thick = $Sounds/Thick
 @onready var vine_kill = $Sounds/Vine_kill
 @onready var waterLabel = hud.get_node("VBoxContainer").get_node("WaterContainer").get_node("WaterLabel")
-@onready var waterSourceLabel = hud.get_node("VBoxContainer").get_node("HBoxContainer").get_node("MarginContainer").get_node("WaterSourceLabel")
+@onready var waterSourceLabel = hud.get_node("VBoxContainer").get_node("HBoxContainer").get_node("WaterSourceLabel")
 
 func _ready():
 	for i in range(width):
@@ -263,6 +263,7 @@ func coord_to_global(v: Vector2i) -> Vector2:
 
 
 func _on_water_timer_timeout():
+<<<<<<< HEAD
 	WaterAmount += WaterRate
 
 func _on_h_box_container_mouse_entered():
@@ -276,3 +277,6 @@ func _on_pause_button_margins_mouse_entered():
 
 func _on_pause_button_margins_mouse_exited():
 	canPlace = true
+=======
+	WaterAmount += WaterRate + controlledHydrants * hydrantRateChange
+>>>>>>> 653a621c09b8cafde9ee71dec826a5207ad99285
