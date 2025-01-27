@@ -8,7 +8,9 @@ var index = 0
 @onready var thickVineIndicator = get_node("HBoxContainer/ThickVine/Indicator")
 @onready var eyePlantIndicator = get_node("HBoxContainer/EyePlant/Indicator")
 @onready var poisonPlantIndicator = get_node("HBoxContainer/PoisonPlant/Indicator")
-
+@onready var playPauseButton = get_node("PauseButtonMargins/TextureButton")
+var playButtonTextureArray = [load("res://Assets/PauseButton.png"),load("res://Assets/PlayButton.png")]
+var playButtonBool = true
 func _ready():
 	pass # Replace with function body.
 
@@ -58,4 +60,12 @@ func _on_eye_button_pressed():
 func _on_poison_button_pressed():
 	index = 3
 
-
+func _on_texture_button_pressed():
+	if playButtonBool == true:
+		playPauseButton.texture_normal = playButtonTextureArray[1]
+		playButtonBool = !playButtonBool
+		get_tree().paused = true
+	elif playButtonBool == false:
+		playPauseButton.texture_normal = playButtonTextureArray[0]
+		playButtonBool = !playButtonBool
+		get_tree().paused = false
