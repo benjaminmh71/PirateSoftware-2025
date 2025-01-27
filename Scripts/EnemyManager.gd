@@ -2,6 +2,7 @@ class_name EnemyManager
 extends Node2D
 
 @onready var waveTimer = get_node("WaveTimer")
+@onready var flamethrower = $"../Sounds/Flamethrower"
 var waves = []
 var spawnPoints = []
 

@@ -9,6 +9,7 @@ var index = 0
 @onready var eyePlantIndicator = get_node("HBoxContainer/EyePlant/Indicator")
 @onready var poisonPlantIndicator = get_node("HBoxContainer/PoisonPlant/Indicator")
 @onready var playPauseButton = get_node("PauseButtonMargins/TextureButton")
+@onready var clickSound = get_node("../Sounds/Click")
 var playButtonTextureArray = [load("res://Assets/PauseButton.png"),load("res://Assets/PlayButton.png")]
 var playButtonBool = true
 func _ready():
@@ -64,8 +65,10 @@ func _on_texture_button_pressed():
 	if playButtonBool == true:
 		playPauseButton.texture_normal = playButtonTextureArray[1]
 		playButtonBool = !playButtonBool
+		clickSound.play()
 		get_tree().paused = true
 	elif playButtonBool == false:
 		playPauseButton.texture_normal = playButtonTextureArray[0]
 		playButtonBool = !playButtonBool
+		clickSound.play()
 		get_tree().paused = false

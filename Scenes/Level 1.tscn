@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://brj3g4ljx7hm0"]
+[gd_scene load_steps=71 format=3 uid="uid://brj3g4ljx7hm0"]
 
 [ext_resource type="Script" path="res://Scripts/Grid.gd" id="1_23fgj"]
 [ext_resource type="Script" path="res://Scripts/CameraControl.gd" id="2_ne5ip"]
@@ -30,12 +30,14 @@
 [ext_resource type="AudioStream" uid="uid://c8wxhhbx6b2qi" path="res://audio/Sounds/basic.mp3.mp3" id="22_7s1g7"]
 [ext_resource type="AudioStream" uid="uid://dy1tb6o2och6c" path="res://audio/Sounds/Background Track.mp3" id="23_ucft5"]
 [ext_resource type="AudioStream" uid="uid://cpcbmy1hsos7b" path="res://audio/Sounds/Poison.mp3.mp3" id="24_v8f3h"]
-[ext_resource type="AudioStream" uid="uid://dta231rqab4wt" path="res://audio/Sounds/thick.mp3.mp3" id="25_7awrx"]
 [ext_resource type="AudioStream" uid="uid://dpe1tsw2oq54o" path="res://audio/Sounds/eyeball.mp3.mp3" id="26_nvycq"]
 [ext_resource type="AudioStream" uid="uid://q8numw2o8fin" path="res://audio/Sounds/kill.mp3.mp3" id="27_lipqu"]
-[ext_resource type="AudioStream" uid="uid://dgth42ka2cpam" path="res://audio/Sounds/fire.mp3.mp3" id="28_gpo07"]
 [ext_resource type="FontFile" uid="uid://omaj6a8ymybh" path="res://Assets/numbers.png" id="29_snewc"]
 [ext_resource type="Texture2D" uid="uid://caqb3y27shxax" path="res://Assets/PauseButton.png" id="30_8b6kk"]
+[ext_resource type="AudioStream" uid="uid://bxngbn6pdegqw" path="res://audio/Sounds/thick.mp3" id="33_jnkmi"]
+[ext_resource type="AudioStream" uid="uid://bl7hxyixpisaf" path="res://audio/Sounds/flame_output.mp3" id="36_bfak1"]
+[ext_resource type="Script" path="res://Scenes/Flamethrower.gd" id="37_wewev"]
+[ext_resource type="AudioStream" uid="uid://3qv8i83y3p4f" path="res://audio/Sounds/click.mp3.mp3" id="38_2i35e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tlpgq"]
 texture = ExtResource("3_ueyml")
@@ -2494,9 +2496,6 @@ rallyPoint = NodePath("../West")
 wait_time = 20.0
 autostart = true
 
-[node name="Flamethrower" type="AudioStreamPlayer" parent="EnemyManager"]
-stream = ExtResource("28_gpo07")
-
 [node name="BasicWave" type="Node" parent="EnemyManager"]
 script = ExtResource("15_es430")
 initial = Array[String](["res://Enemies/Basic Enemy.tscn", "res://Enemies/Basic Enemy.tscn", "res://Enemies/Basic Enemy.tscn"])
@@ -2662,7 +2661,7 @@ texture = ExtResource("21_4psir")
 [node name="PauseButtonMargins" type="MarginContainer" parent="UI"]
 process_mode = 3
 layout_direction = 2
-anchors_preset = -1
+anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -18.0
@@ -2678,6 +2677,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="TextureButton" type="TextureButton" parent="UI/PauseButtonMargins"]
 layout_mode = 2
+mouse_filter = 1
 texture_normal = ExtResource("30_8b6kk")
 
 [node name="Sounds" type="Node2D" parent="."]
@@ -2692,7 +2692,7 @@ stream = ExtResource("23_ucft5")
 stream = ExtResource("24_v8f3h")
 
 [node name="Thick" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource("25_7awrx")
+stream = ExtResource("33_jnkmi")
 
 [node name="Eyeball" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("26_nvycq")
@@ -2700,11 +2700,24 @@ stream = ExtResource("26_nvycq")
 [node name="Vine_kill" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("27_lipqu")
 
+[node name="Flamethrower" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("36_bfak1")
+volume_db = -19.81
+script = ExtResource("37_wewev")
+
+[node name="Click" type="AudioStreamPlayer" parent="Sounds"]
+process_mode = 3
+stream = ExtResource("38_2i35e")
+
 [connection signal="timeout" from="EnemyManager/WaveTimer" to="EnemyManager" method="_on_wave_timer_timeout"]
 [connection signal="timeout" from="WaterTimer" to="." method="_on_water_timer_timeout"]
+[connection signal="mouse_entered" from="UI/HBoxContainer" to="." method="_on_h_box_container_mouse_entered"]
+[connection signal="mouse_exited" from="UI/HBoxContainer" to="." method="_on_h_box_container_mouse_exited"]
 [connection signal="pressed" from="UI/HBoxContainer/BasicVine/BasicButton" to="UI" method="_on_basic_button_pressed"]
 [connection signal="pressed" from="UI/HBoxContainer/ThickVine/ThickButton" to="UI" method="_on_thick_button_pressed"]
 [connection signal="pressed" from="UI/HBoxContainer/EyePlant/EyeButton" to="UI" method="_on_eye_button_pressed"]
 [connection signal="pressed" from="UI/HBoxContainer/PoisonPlant/PoisonButton" to="UI" method="_on_poison_button_pressed"]
 [connection signal="gui_input" from="UI/PauseButtonMargins" to="." method="_on_pause_button_margins_gui_input"]
+[connection signal="mouse_entered" from="UI/PauseButtonMargins" to="." method="_on_pause_button_margins_mouse_entered"]
+[connection signal="mouse_exited" from="UI/PauseButtonMargins" to="." method="_on_pause_button_margins_mouse_exited"]
 [connection signal="pressed" from="UI/PauseButtonMargins/TextureButton" to="UI" method="_on_texture_button_pressed"]

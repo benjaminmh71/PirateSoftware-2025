@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 BetterTerrain="*res://addons/better-terrain/BetterTerrain.gd"
 LevelManager="*res://Scripts/LevelManager.gd"
 GlobalAudioStreamPlayer="*res://audio_stream_player.tscn"
+GlobalSignals="*res://Global_Signals/global_signals.gd"
 
 [display]
 

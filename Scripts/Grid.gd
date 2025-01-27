@@ -11,6 +11,10 @@ var directions := [
 var snapRange := 3
 var vines: Dictionary
 var astar := AStarGrid2D.new()
+
+#Placement
+var canPlace = true
+
 #Water
 @onready var WaterTimer = $WaterTimer
 var hydrants := 0
@@ -84,7 +88,7 @@ func _process(_delta):
 	# Render tile placement indicator:
 	var pos = global_to_coord(get_global_mouse_position())
 	var closestValidPos = getClosestValidTile(pos)
-	if closestValidPos != null and !(getTerrain(pos.x, pos.y) is Vine or 
+	if closestValidPos != null and (canPlace == true) and !(getTerrain(pos.x, pos.y) is Vine or 
 		getTerrain(closestValidPos.x, closestValidPos.y).impassable):
 		tilePlacementIndicator.visible = true
 		tilePlacementIndicator.position = coord_to_global(closestValidPos)
@@ -261,7 +265,14 @@ func coord_to_global(v: Vector2i) -> Vector2:
 func _on_water_timer_timeout():
 	WaterAmount += WaterRate
 
+func _on_h_box_container_mouse_entered():
+	canPlace = false
 
-func _on_pause_button_margins_gui_input(event):
-	if event == MOUSE_BUTTON_LEFT:
-		print("okay")
+func _on_h_box_container_mouse_exited():
+	canPlace = true
+
+func _on_pause_button_margins_mouse_entered():
+	canPlace = false
+
+func _on_pause_button_margins_mouse_exited():
+	canPlace = true
