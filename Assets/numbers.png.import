@@ -12,11 +12,11 @@ dest_files=["res://.godot/imported/numbers.png-3c85ea4e5140c73b7f0b81c1ea87ae98.
 
 [params]
 
-character_ranges=PackedStringArray("\'0\'-\'9\'")
-columns=10
+character_ranges=PackedStringArray("\'0\'-\'9\'", "\'/\'", "\':\'")
+columns=12
 rows=1
 image_margin=Rect2i(0, 0, 0, 0)
-character_margin=Rect2i(0, 0, 3, 0)
+character_margin=Rect2i(0, 0, 2, 0)
 fallbacks=[]
 compress=true
 scaling_mode=2
