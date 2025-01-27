@@ -17,9 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GlobalAudioStreamPlayer="*res://audio_stream_player.tscn"
 BetterTerrain="*res://addons/better-terrain/BetterTerrain.gd"
 LevelManager="*res://Scripts/LevelManager.gd"
+GlobalAudioStreamPlayer="*res://audio_stream_player.tscn"
 
 [display]
 

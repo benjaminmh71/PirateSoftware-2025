@@ -7,7 +7,7 @@ extends CharacterBody2D
 @onready var constrictTimer: Timer = get_node("ConstrictTimer")
 @onready var poisonTimer: Timer = get_node("PoisonTimer")
 @onready var navTimer: Timer = get_node("NavTimer")
-@onready var camera = get_node("/root/Grid/Camera2D")
+@onready var camera = grid.get_node("Camera2D")
 
 @export var rallyPoint: Node2D = null
 

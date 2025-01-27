@@ -4,10 +4,10 @@ extends CanvasLayer
 var selected = BasicVine
 var index = 0
 
-@onready var basicVineIndicator = get_node("MarginContainer/HBoxContainer/BasicVine/Indicator")
-@onready var thickVineIndicator = get_node("MarginContainer/HBoxContainer/ThickVine/Indicator")
-@onready var eyePlantIndicator = get_node("MarginContainer/HBoxContainer/EyePlant/Indicator")
-@onready var poisonPlantIndicator = get_node("MarginContainer/HBoxContainer/PoisonPlant/Indicator")
+@onready var basicVineIndicator = get_node("HBoxContainer/BasicVine/Indicator")
+@onready var thickVineIndicator = get_node("HBoxContainer/ThickVine/Indicator")
+@onready var eyePlantIndicator = get_node("HBoxContainer/EyePlant/Indicator")
+@onready var poisonPlantIndicator = get_node("HBoxContainer/PoisonPlant/Indicator")
 
 func _ready():
 	pass # Replace with function body.

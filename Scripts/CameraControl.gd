@@ -1,7 +1,7 @@
 extends Camera2D
 
 var prevPos: Vector2
-var dragSpeed := 20
+var dragSpeed := 30
 var keyboardSpeed := 3
 var mouseVectorPrev = Vector2(0, 0)
 var zoomFactor = 1
@@ -27,9 +27,6 @@ func _process(_delta):
 		position += Vector2.DOWN * keyboardSpeed
 	if Input.is_action_pressed("keyboard_d"):
 		position += Vector2.RIGHT * keyboardSpeed
-	if Input.is_action_pressed("mouse_middle"):
-		position += (mouseVectorPrev - get_local_mouse_position()) * 2.5
-		mouseVectorPrev = get_local_mouse_position()
 	if Input.is_action_just_released("scroll_forward") and zoom.x < 2:
 		zoomFactor += 0.1
 	if Input.is_action_just_released("scroll_backward") and zoom.x > 0.5:

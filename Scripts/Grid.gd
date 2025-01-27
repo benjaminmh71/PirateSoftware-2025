@@ -19,20 +19,18 @@ var controlledHydrants := 0
 #Water
 var WaterRate = 0.5
 var hydrantRateChange = 0.25
-var WaterAmount = 15
-var canPlace = true
-@onready var WaterLabel = $UI/WaterMarginContainer/WaterContainer/WaterLabel
+var WaterAmount = 10
 @onready var tilemap: TileMap = get_node("TileMap")
 @onready var fogmap: TileMap = get_node("Fog")
 @onready var tilePlacementIndicator: Sprite2D = get_node("TilePlacementIndicator")
 @onready var hud:HUD = get_node("UI")
-@onready var basic = $Basic
-@onready var background = $Background
-@onready var poison = $Poison
-@onready var eyeball = $Eyeball
-@onready var thick = $Thick
-@onready var vine_kill = $Vine_kill
-@onready var waterLabel = hud.get_node("VBoxContainer").get_node("WaterLabel")
+@onready var basic = $Sounds/Basic
+@onready var background = $Sounds/Background
+@onready var poison = $Sounds/Poison
+@onready var eyeball = $Sounds/Eyeball
+@onready var thick = $Sounds/Thick
+@onready var vine_kill = $Sounds/Vine_kill
+@onready var waterLabel = hud.get_node("VBoxContainer").get_node("WaterContainer").get_node("WaterLabel")
 @onready var waterSourceLabel = hud.get_node("VBoxContainer").get_node("HBoxContainer").get_node("WaterSourceLabel")
 
 func _ready():
@@ -54,9 +52,9 @@ func _ready():
 			if BetterTerrain.get_cell(tilemap, 0, Vector2i(i,j)) == 9:
 				place(i, j, Fence)
 			if BetterTerrain.get_cell(tilemap, 0, Vector2i(i,j)) == 1:
-				place(i, j, BasicVine)
+				place(i, j, BasicVine, true)
 			if BetterTerrain.get_cell(tilemap, 0, Vector2i(i,j)) == 2:
-				place(i, j, Heart)
+				place(i, j, Heart, true)
 				updateFog(Vector2i(i, j))
 	
 	# Initialize pathfinder:
@@ -80,13 +78,13 @@ func _ready():
 		hydrants += 1
 
 func _process(_delta):
-	WaterLabel.text = "Water: " + str(floor(WaterAmount))
+	waterLabel.text = str(floor(WaterAmount))
 	waterSourceLabel.text = ": " + str(controlledHydrants)+"/"+str(hydrants)
 	
 	# Render tile placement indicator:
 	var pos = global_to_coord(get_global_mouse_position())
 	var closestValidPos = getClosestValidTile(pos)
-	if closestValidPos != null and (canPlace == true) and !(getTerrain(pos.x, pos.y) is Vine or 
+	if closestValidPos != null and !(getTerrain(pos.x, pos.y) is Vine or 
 		getTerrain(closestValidPos.x, closestValidPos.y).impassable):
 		tilePlacementIndicator.visible = true
 		tilePlacementIndicator.position = coord_to_global(closestValidPos)
@@ -144,29 +142,28 @@ func getTile(x:int, y:int) -> Tile:
 	if y >= height or y < 0: return null
 	return grid[x][y]
 
-func place(x:int, y:int, terrainClass):
+func place(x:int, y:int, terrainClass, automatic = false):
 	if x >= width or x < 0: return
 	if y >= height or y < 0: return
-	if canPlace == false: return
 	var terrain = terrainClass.new(x, y)
 	if terrain is Vine:
 		if WaterAmount < terrain.cost: return 
 	grid[x][y].terrain = terrain
 	if terrain is Vine:
 		#sound effects
-		if terrain is PoisonPlant:
-			poison.play()
-		if terrain is ThickVine:
-			thick.play()
-		if terrain is BasicVine:
-			basic.play()
-		if terrain is EyePlant:
-			eyeball.play()
+		if !automatic:
+			if terrain is PoisonPlant:
+				poison.play()
+			if terrain is ThickVine:
+				thick.play()
+			if terrain is BasicVine:
+				basic.play()
+			if terrain is EyePlant:
+				eyeball.play()
 		vines[terrain] = true
 		terrain.died.connect(onVineDeath)
 		updateFog(Vector2i(x, y))
-		WaterAmount -= terrain.cost
-		WaterLabel.text = str(int(WaterAmount))
+		if !automatic: WaterAmount -= terrain.cost
 		if grid[x][y].hasHydrant:
 			controlledHydrants += 1
 			if controlledHydrants >= hydrants:
@@ -263,11 +260,3 @@ func coord_to_global(v: Vector2i) -> Vector2:
 
 func _on_water_timer_timeout():
 	WaterAmount += WaterRate
-	WaterLabel.text = str(int(WaterAmount))
-
-func _on_margin_container_mouse_entered():
-	canPlace = false
-
-func _on_margin_container_mouse_exited():
-	canPlace = true
-	WaterAmount += WaterRate + hydrantRateChange * controlledHydrants
