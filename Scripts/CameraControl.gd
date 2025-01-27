@@ -3,7 +3,7 @@ extends Camera2D
 var prevPos: Vector2
 var dragSpeed := 20
 var keyboardSpeed := 3
-
+var mouseVectorPrev = Vector2(0, 0)
 @onready var grid: Grid = get_parent()
 @onready var heart = get_parent().get_node("Heart")
 
@@ -30,6 +30,9 @@ func _process(_delta):
 		position += Vector2.DOWN * keyboardSpeed
 	if Input.is_action_pressed("keyboard_d"):
 		position += Vector2.RIGHT * keyboardSpeed
+	if Input.is_action_pressed("mouse_middle"):
+		position += (mouseVectorPrev - get_local_mouse_position()) * 2.5
+		mouseVectorPrev = get_local_mouse_position()
 	
 	var size = get_viewport_rect().size
 	if global_position.x < size.x/2:
@@ -42,3 +45,4 @@ func _process(_delta):
 		global_position.y = grid.height * grid.tsize - size.y/2
 	
 	prevPos = get_local_mouse_position()
+	mouseVectorPrev = get_local_mouse_position()

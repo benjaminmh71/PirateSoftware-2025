@@ -11,16 +11,23 @@ var directions := [
 var snapRange := 3
 var vines: Dictionary
 var astar := AStarGrid2D.new()
-
 #Water
 @onready var WaterTimer = $WaterTimer
-var WaterRate = .5
+var WaterRate = 6
 var WaterAmount = 15
-
+var canPlace = true
+@onready var WaterLabel = $UI/WaterMarginContainer/WaterContainer/WaterLabel
 @onready var tilemap: TileMap = get_node("TileMap")
 @onready var fogmap: TileMap = get_node("Fog")
 @onready var tilePlacementIndicator: Sprite2D = get_node("TilePlacementIndicator")
 @onready var hud:HUD = get_node("UI")
+@onready var basic = $Basic
+@onready var background = $Background
+@onready var poison = $Poison
+@onready var eyeball = $Eyeball
+@onready var thick = $Thick
+@onready var vine_kill = $Vine_kill
+
 
 func _ready():
 	for i in range(width):
@@ -64,7 +71,7 @@ func _process(_delta):
 	# Render tile placement indicator:
 	var pos = global_to_coord(get_global_mouse_position())
 	var closestValidPos = getClosestValidTile(pos)
-	if closestValidPos != null and !(getTerrain(pos.x, pos.y) is Vine or 
+	if closestValidPos != null and (canPlace == true) and !(getTerrain(pos.x, pos.y) is Vine or 
 		getTerrain(closestValidPos.x, closestValidPos.y).impassable):
 		tilePlacementIndicator.visible = true
 		tilePlacementIndicator.position = coord_to_global(closestValidPos)
@@ -125,16 +132,26 @@ func getTile(x:int, y:int) -> Tile:
 func place(x:int, y:int, terrainClass):
 	if x >= width or x < 0: return
 	if y >= height or y < 0: return
+	if canPlace == false: return
 	var terrain = terrainClass.new(x, y)
 	if terrain is Vine:
 		if WaterAmount < terrain.cost: return 
 	grid[x][y].terrain = terrain
 	if terrain is Vine:
+		#sound effects
+		if terrain is PoisonPlant:
+			poison.play()
+		if terrain is ThickVine:
+			thick.play()
+		if terrain is BasicVine:
+			basic.play()
+		if terrain is EyePlant:
+			eyeball.play()
 		vines[terrain] = true
 		terrain.died.connect(onVineDeath)
 		updateFog(Vector2i(x, y))
 		WaterAmount -= terrain.cost
-		get_node("WaterLabel").text = str(WaterAmount)
+		WaterLabel.text = str(int(WaterAmount))
 		if terrain is PoisonPlant:
 			for i in range(-1, 2):
 				for j in range(-1, 2):
@@ -145,6 +162,7 @@ func place(x:int, y:int, terrainClass):
 					BetterTerrain.update_terrain_cell(fogmap, 0, Vector2i(x+i, y+j))
 
 func onVineDeath(vine: Vine):
+	vine_kill.play()
 	grid[vine.x][vine.y].terrain = Empty.new(vine.x, vine.y)
 	vines.erase(vine)
 	if vine is Heart:
@@ -222,3 +240,10 @@ func coord_to_global(v: Vector2i) -> Vector2:
 
 func _on_water_timer_timeout():
 	WaterAmount += WaterRate
+	WaterLabel.text = str(int(WaterAmount))
+
+func _on_margin_container_mouse_entered():
+	canPlace = false
+
+func _on_margin_container_mouse_exited():
+	canPlace = true
