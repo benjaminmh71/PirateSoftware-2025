@@ -31,7 +31,7 @@ var WaterAmount = 10
 @onready var thick = $Sounds/Thick
 @onready var vine_kill = $Sounds/Vine_kill
 @onready var waterLabel = hud.get_node("VBoxContainer").get_node("WaterContainer").get_node("WaterLabel")
-@onready var waterSourceLabel = hud.get_node("VBoxContainer").get_node("HBoxContainer").get_node("MarginContainer").get_node("WaterSourceLabel")
+@onready var waterSourceLabel = hud.get_node("VBoxContainer").get_node("HBoxContainer").get_node("WaterSourceLabel")
 
 func _ready():
 	for i in range(width):

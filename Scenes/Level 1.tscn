@@ -2259,7 +2259,7 @@ image = SubResource("Image_exxfa")
 [sub_resource type="LabelSettings" id="LabelSettings_0dh4e"]
 font_color = Color(0, 0, 0, 1)
 
-[node name="Grid2" type="Node2D"]
+[node name="Grid" type="Node2D"]
 script = ExtResource("1_23fgj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -2614,12 +2614,7 @@ offset_bottom = 50.0
 [node name="WaterContainer" type="HBoxContainer" parent="UI/VBoxContainer"]
 layout_mode = 2
 
-[node name="WaterTitleMargins" type="MarginContainer" parent="UI/VBoxContainer/WaterContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 2
-
-[node name="WaterTitle" type="TextureRect" parent="UI/VBoxContainer/WaterContainer/WaterTitleMargins"]
+[node name="WaterTitle" type="TextureRect" parent="UI/VBoxContainer/WaterContainer"]
 layout_mode = 2
 texture = SubResource("ImageTexture_whbvr")
 
@@ -2639,11 +2634,7 @@ layout_mode = 2
 layout_mode = 2
 texture = ExtResource("13_yahkh")
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = -10
-
-[node name="WaterSourceLabel" type="Label" parent="UI/VBoxContainer/HBoxContainer/MarginContainer"]
+[node name="WaterSourceLabel" type="Label" parent="UI/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.206488, 0.149303, 0.0554689, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0.545098, 1)
