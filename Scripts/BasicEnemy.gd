@@ -10,11 +10,11 @@ func _ready():
 	speed = 10
 	attackRange = 14
 
-func _process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	super(_delta)
 	
 	if closestVine != null and dist <= attackRange and !attackTimer.is_stopped():
-		flamethrower.play()
+		#flamethrower.play()
 		emitter.emitting = true
 		emitter.direction = grid.coord_to_global(Vector2i(closestVine.x, closestVine.y)) - global_position
 	else:

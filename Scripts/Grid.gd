@@ -2,8 +2,8 @@ class_name Grid
 extends Node2D
 
 var grid := []
-var width := 45
-var height := 45
+@export var width := 45
+@export var height := 45
 var tsize := 16
 var directions := [
 	Vector2i(1,0),	Vector2i(-1,0),	Vector2i(0,1),	Vector2i(0,-1)
@@ -13,7 +13,12 @@ var vines: Dictionary
 var astar := AStarGrid2D.new()
 #Water
 @onready var WaterTimer = $WaterTimer
-var WaterRate = 6
+var hydrants := 0
+var controlledHydrants := 0
+
+#Water
+var WaterRate = 0.5
+var hydrantRateChange = 0.25
 var WaterAmount = 15
 var canPlace = true
 @onready var WaterLabel = $UI/WaterMarginContainer/WaterContainer/WaterLabel
@@ -27,7 +32,8 @@ var canPlace = true
 @onready var eyeball = $Eyeball
 @onready var thick = $Thick
 @onready var vine_kill = $Vine_kill
-
+@onready var waterLabel = hud.get_node("VBoxContainer").get_node("WaterLabel")
+@onready var waterSourceLabel = hud.get_node("VBoxContainer").get_node("HBoxContainer").get_node("WaterSourceLabel")
 
 func _ready():
 	for i in range(width):
@@ -66,8 +72,17 @@ func _ready():
 				for d in directions:
 					if getTerrain(i+d.x, j+d.y).impassable:
 						astar.set_point_weight_scale(Vector2i(i, j), 1.2)
+	
+	# Initialize hydrants:
+	for h in get_node("Hydrants").get_children():
+		var pos = global_to_coord(h.global_position)
+		getTile(pos.x, pos.y).hasHydrant = true
+		hydrants += 1
 
 func _process(_delta):
+	WaterLabel.text = "Water: " + str(floor(WaterAmount))
+	waterSourceLabel.text = ": " + str(controlledHydrants)+"/"+str(hydrants)
+	
 	# Render tile placement indicator:
 	var pos = global_to_coord(get_global_mouse_position())
 	var closestValidPos = getClosestValidTile(pos)
@@ -152,6 +167,11 @@ func place(x:int, y:int, terrainClass):
 		updateFog(Vector2i(x, y))
 		WaterAmount -= terrain.cost
 		WaterLabel.text = str(int(WaterAmount))
+		if grid[x][y].hasHydrant:
+			controlledHydrants += 1
+			if controlledHydrants >= hydrants:
+				self.queue_free()
+				get_tree().root.add_child(load("res://Scenes/WinScreen.tscn").instantiate())
 		if terrain is PoisonPlant:
 			for i in range(-1, 2):
 				for j in range(-1, 2):
@@ -183,6 +203,9 @@ func onVineDeath(vine: Vine):
 		
 		for v in toDestroy:
 			massDestroy(v)
+		
+		if grid[vine.x][vine.y].hasHydrant:
+			controlledHydrants -= 1
 		
 		if vine is PoisonPlant:
 			for i in range(-1, 2):
@@ -247,3 +270,4 @@ func _on_margin_container_mouse_entered():
 
 func _on_margin_container_mouse_exited():
 	canPlace = true
+	WaterAmount += WaterRate + hydrantRateChange * controlledHydrants

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddxmeynjun2p0"]
+[gd_scene load_steps=3 format=3 uid="uid://ddxmeynjun2p0"]
 
 [ext_resource type="Script" path="res://Scripts/VolumeSlider.gd" id="1_e370r"]
+[ext_resource type="Script" path="res://Scripts/BackButton.gd" id="2_g8vdg"]
 
 [node name="OptionsMenu" type="Control"]
 layout_mode = 3
@@ -14,7 +15,6 @@ grow_vertical = 2
 layout_mode = 1
 offset_right = 40.0
 offset_bottom = 40.0
-scale = Vector2(2, 2)
 
 [node name="VolumeLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -27,4 +27,10 @@ max_value = 0.0
 step = 0.1
 script = ExtResource("1_e370r")
 
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Back"
+script = ExtResource("2_g8vdg")
+
 [connection signal="drag_ended" from="VBoxContainer/VolumeSlider" to="VBoxContainer/VolumeSlider" method="_on_drag_ended"]
+[connection signal="pressed" from="VBoxContainer/Button" to="VBoxContainer/Button" method="_on_pressed"]
