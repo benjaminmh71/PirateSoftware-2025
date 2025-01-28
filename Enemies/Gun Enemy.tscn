@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://cg6defi6a1gea"]
 
 [ext_resource type="Script" path="res://Scripts/GunEnemy.gd" id="1_8t728"]
-[ext_resource type="Texture2D" path="res://Assets/swat.png" id="2_gso87"]
+[ext_resource type="Texture2D" uid="uid://cdh28wb4joq0h" path="res://Assets/swat.png" id="2_gso87"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_co0si"]
 atlas = ExtResource("2_gso87")

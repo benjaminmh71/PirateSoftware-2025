@@ -1,0 +1,40 @@
+[gd_scene load_steps=10 format=3 uid="uid://ci445lmec0vl"]
+
+[ext_resource type="AudioStream" uid="uid://c8wxhhbx6b2qi" path="res://audio/Sounds/basic.mp3.mp3" id="1_7lfu6"]
+[ext_resource type="AudioStream" uid="uid://dy1tb6o2och6c" path="res://audio/Sounds/Background Track.mp3" id="2_6vrog"]
+[ext_resource type="AudioStream" uid="uid://cpcbmy1hsos7b" path="res://audio/Sounds/Poison.mp3.mp3" id="3_s4bkb"]
+[ext_resource type="AudioStream" uid="uid://bxngbn6pdegqw" path="res://audio/Sounds/thick.mp3" id="4_h1jdi"]
+[ext_resource type="AudioStream" uid="uid://dpe1tsw2oq54o" path="res://audio/Sounds/eyeball.mp3.mp3" id="5_xov31"]
+[ext_resource type="AudioStream" uid="uid://q8numw2o8fin" path="res://audio/Sounds/kill.mp3.mp3" id="6_oicem"]
+[ext_resource type="AudioStream" uid="uid://bl7hxyixpisaf" path="res://audio/Sounds/flame_output.mp3" id="7_n3mdt"]
+[ext_resource type="Script" path="res://Scenes/Flamethrower.gd" id="8_v6u2r"]
+[ext_resource type="AudioStream" uid="uid://3qv8i83y3p4f" path="res://audio/Sounds/click.mp3.mp3" id="9_1t63t"]
+
+[node name="Sounds" type="Node2D"]
+
+[node name="Basic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_7lfu6")
+
+[node name="Background" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_6vrog")
+
+[node name="Poison" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_s4bkb")
+
+[node name="Thick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_h1jdi")
+
+[node name="Eyeball" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_xov31")
+
+[node name="Vine_kill" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_oicem")
+
+[node name="Flamethrower" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_n3mdt")
+volume_db = -19.81
+script = ExtResource("8_v6u2r")
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("9_1t63t")

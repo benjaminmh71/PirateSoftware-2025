@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://db5yd2s6e4d88"]
+[gd_scene load_steps=48 format=3 uid="uid://db5yd2s6e4d88"]
 
 [ext_resource type="Script" path="res://Scripts/Grid.gd" id="1_s6nto"]
 [ext_resource type="Script" path="res://Scripts/CameraControl.gd" id="2_hsyx4"]
@@ -22,12 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://cr6rdi3o0lmp5" path="res://Assets/Fog.png" id="20_x7gvw"]
 [ext_resource type="Texture2D" uid="uid://b16hn1u66yg3q" path="res://Assets/poison.png" id="21_diuj0"]
 [ext_resource type="PackedScene" uid="uid://dptibvk11w8wy" path="res://Scenes/UI.tscn" id="22_f3ecm"]
-[ext_resource type="AudioStream" uid="uid://c8wxhhbx6b2qi" path="res://audio/Sounds/basic.mp3.mp3" id="29_2160l"]
-[ext_resource type="AudioStream" uid="uid://dy1tb6o2och6c" path="res://audio/Sounds/Background Track.mp3" id="30_he74a"]
-[ext_resource type="AudioStream" uid="uid://cpcbmy1hsos7b" path="res://audio/Sounds/Poison.mp3.mp3" id="31_5beih"]
-[ext_resource type="AudioStream" path="res://audio/Sounds/thick.mp3.mp3" id="32_j50v6"]
-[ext_resource type="AudioStream" uid="uid://dpe1tsw2oq54o" path="res://audio/Sounds/eyeball.mp3.mp3" id="33_813l0"]
-[ext_resource type="AudioStream" uid="uid://q8numw2o8fin" path="res://audio/Sounds/kill.mp3.mp3" id="34_jb7ww"]
+[ext_resource type="PackedScene" uid="uid://ci445lmec0vl" path="res://Scenes/Sounds.tscn" id="23_dtxoc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tlpgq"]
 texture = ExtResource("3_rsjqr")
@@ -2243,15 +2238,12 @@ script = ExtResource("17_5xabi")
 
 [node name="BasicEnemy" parent="EnemyManager" instance=ExtResource("18_a8kjr")]
 position = Vector2(341, 168)
-rallyPoint = null
 
 [node name="BasicEnemy2" parent="EnemyManager" instance=ExtResource("18_a8kjr")]
 position = Vector2(361, 185)
-rallyPoint = null
 
 [node name="BasicEnemy3" parent="EnemyManager" instance=ExtResource("18_a8kjr")]
 position = Vector2(372, 167)
-rallyPoint = null
 
 [node name="WaveTimer" type="Timer" parent="EnemyManager"]
 wait_time = 1e+07
@@ -2279,25 +2271,7 @@ autostart = true
 
 [node name="UI" parent="." instance=ExtResource("22_f3ecm")]
 
-[node name="Sounds" type="Node2D" parent="."]
-
-[node name="Basic" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource("29_2160l")
-
-[node name="Background" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource("30_he74a")
-
-[node name="Poison" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource("31_5beih")
-
-[node name="Thick" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource("32_j50v6")
-
-[node name="Eyeball" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource("33_813l0")
-
-[node name="Vine_kill" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource("34_jb7ww")
+[node name="Sounds" parent="." instance=ExtResource("23_dtxoc")]
 
 [connection signal="timeout" from="EnemyManager/WaveTimer" to="EnemyManager" method="_on_wave_timer_timeout"]
 [connection signal="timeout" from="WaterTimer" to="." method="_on_water_timer_timeout"]

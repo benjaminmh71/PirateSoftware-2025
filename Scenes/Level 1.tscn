@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://brj3g4ljx7hm0"]
+[gd_scene load_steps=53 format=3 uid="uid://brj3g4ljx7hm0"]
 
 [ext_resource type="Script" path="res://Scripts/Grid.gd" id="1_23fgj"]
 [ext_resource type="Script" path="res://Scripts/CameraControl.gd" id="2_ne5ip"]
@@ -21,16 +21,8 @@
 [ext_resource type="Texture2D" uid="uid://db3bo06qvpevs" path="res://Assets/fireHydrent.webp" id="13_yahkh"]
 [ext_resource type="Script" path="res://Scripts/Wave.gd" id="15_es430"]
 [ext_resource type="Texture2D" uid="uid://b16hn1u66yg3q" path="res://Assets/poison.png" id="16_6bfwe"]
-[ext_resource type="AudioStream" uid="uid://c8wxhhbx6b2qi" path="res://audio/Sounds/basic.mp3.mp3" id="22_7s1g7"]
 [ext_resource type="PackedScene" uid="uid://dptibvk11w8wy" path="res://Scenes/UI.tscn" id="22_b8hcj"]
-[ext_resource type="AudioStream" uid="uid://dy1tb6o2och6c" path="res://audio/Sounds/Background Track.mp3" id="23_ucft5"]
-[ext_resource type="AudioStream" uid="uid://cpcbmy1hsos7b" path="res://audio/Sounds/Poison.mp3.mp3" id="24_v8f3h"]
-[ext_resource type="AudioStream" uid="uid://dpe1tsw2oq54o" path="res://audio/Sounds/eyeball.mp3.mp3" id="26_nvycq"]
-[ext_resource type="AudioStream" uid="uid://q8numw2o8fin" path="res://audio/Sounds/kill.mp3.mp3" id="27_lipqu"]
-[ext_resource type="AudioStream" uid="uid://bxngbn6pdegqw" path="res://audio/Sounds/thick.mp3" id="33_jnkmi"]
-[ext_resource type="AudioStream" uid="uid://bl7hxyixpisaf" path="res://audio/Sounds/flame_output.mp3" id="36_bfak1"]
-[ext_resource type="Script" path="res://Scenes/Flamethrower.gd" id="37_wewev"]
-[ext_resource type="AudioStream" uid="uid://3qv8i83y3p4f" path="res://audio/Sounds/click.mp3.mp3" id="38_2i35e"]
+[ext_resource type="PackedScene" uid="uid://ci445lmec0vl" path="res://Scenes/Sounds.tscn" id="23_liufc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tlpgq"]
 texture = ExtResource("3_ueyml")
@@ -2510,34 +2502,7 @@ autostart = true
 
 [node name="UI" parent="." instance=ExtResource("22_b8hcj")]
 
-[node name="Sounds" type="Node2D" parent="."]
-
-[node name="Basic" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource("22_7s1g7")
-
-[node name="Background" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource("23_ucft5")
-
-[node name="Poison" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource("24_v8f3h")
-
-[node name="Thick" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource("33_jnkmi")
-
-[node name="Eyeball" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource("26_nvycq")
-
-[node name="Vine_kill" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource("27_lipqu")
-
-[node name="Flamethrower" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource("36_bfak1")
-volume_db = -19.81
-script = ExtResource("37_wewev")
-
-[node name="Click" type="AudioStreamPlayer" parent="Sounds"]
-process_mode = 3
-stream = ExtResource("38_2i35e")
+[node name="Sounds" parent="." instance=ExtResource("23_liufc")]
 
 [connection signal="timeout" from="EnemyManager/WaveTimer" to="EnemyManager" method="_on_wave_timer_timeout"]
 [connection signal="timeout" from="WaterTimer" to="." method="_on_water_timer_timeout"]
