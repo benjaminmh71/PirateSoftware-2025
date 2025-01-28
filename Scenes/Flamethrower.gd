@@ -14,12 +14,9 @@ func _process(delta):
 		flamethrower.playing = false
 	if (enemies_firing > 0) and (flamethrower.playing == false):
 		flamethrower.playing = true
-	print(enemies_firing)
 	
 func add_flamer():
 	enemies_firing+=1
-	print("increasing")
 	
 func destroy_flamer():
 	enemies_firing-=1
-	print("decreasing")
