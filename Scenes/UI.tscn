@@ -1,0 +1,218 @@
+[gd_scene load_steps=16 format=3 uid="uid://dptibvk11w8wy"]
+
+[ext_resource type="Texture2D" uid="uid://dc5xh1aqrel4v" path="res://Assets/Vine Panel.png" id="1_4ld41"]
+[ext_resource type="Script" path="res://Scripts/HUD.gd" id="1_idh0n"]
+[ext_resource type="Texture2D" uid="uid://bvy0ghl8sg4ad" path="res://Assets/TilePlacementIndicator.png" id="2_j6baa"]
+[ext_resource type="Texture2D" uid="uid://tqjoetivao5d" path="res://Assets/ThickVine Panel.png" id="3_thghv"]
+[ext_resource type="Texture2D" uid="uid://cmlu36h1k1vee" path="res://Assets/EyePlant Panel.png" id="4_47kyh"]
+[ext_resource type="Texture2D" uid="uid://ta5omakkpbgb" path="res://Assets/PoisonPlant Panel.png" id="5_7skrx"]
+[ext_resource type="FontFile" uid="uid://omaj6a8ymybh" path="res://Assets/numbers.png" id="6_4246p"]
+[ext_resource type="Texture2D" uid="uid://db3bo06qvpevs" path="res://Assets/fireHydrent.webp" id="7_lduvo"]
+[ext_resource type="Texture2D" uid="uid://cithbjybsmpgr" path="res://Assets/Warning Indicator.png" id="8_rmq0v"]
+[ext_resource type="Texture2D" path="res://Assets/PauseButton.png" id="9_mhaei"]
+[ext_resource type="Texture2D" uid="uid://b2mfndnvmchdn" path="res://Assets/9 Rect.png" id="10_gmq0o"]
+[ext_resource type="Script" path="res://Scripts/TutorialText.gd" id="11_suune"]
+
+[sub_resource type="Image" id="Image_xan63"]
+data = {
+"data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 255, 255, 255, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 255, 255, 255, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 255, 255, 255, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 255, 255, 255, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 255, 255, 255, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 255, 255, 255, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 255, 255, 255, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 255, 255, 255, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 255, 255, 255, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 255, 255, 255, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 255, 255, 255, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 255, 255, 255, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 255, 255, 255, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 255, 255, 255, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 255, 255, 255, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 255, 255, 255, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 255, 255, 255, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 255, 255, 255, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"format": "RGBA8",
+"height": 16,
+"mipmaps": false,
+"width": 48
+}
+
+[sub_resource type="ImageTexture" id="ImageTexture_v2w2d"]
+image = SubResource("Image_xan63")
+
+[sub_resource type="LabelSettings" id="LabelSettings_7xobo"]
+font_color = Color(0, 0, 0, 1)
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_idh0n")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -38.0
+offset_top = -16.0
+offset_right = 38.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+
+[node name="BasicVine" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="BasicButton" type="TextureButton" parent="HBoxContainer/BasicVine"]
+layout_mode = 2
+mouse_filter = 1
+texture_normal = ExtResource("1_4ld41")
+texture_pressed = ExtResource("1_4ld41")
+
+[node name="Indicator" type="TextureRect" parent="HBoxContainer/BasicVine"]
+layout_mode = 2
+texture = ExtResource("2_j6baa")
+stretch_mode = 2
+
+[node name="ThickVine" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="ThickButton" type="TextureButton" parent="HBoxContainer/ThickVine"]
+layout_mode = 2
+mouse_filter = 1
+texture_normal = ExtResource("3_thghv")
+
+[node name="Indicator" type="TextureRect" parent="HBoxContainer/ThickVine"]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_j6baa")
+stretch_mode = 2
+
+[node name="EyePlant" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="EyeButton" type="TextureButton" parent="HBoxContainer/EyePlant"]
+layout_mode = 2
+mouse_filter = 1
+texture_normal = ExtResource("4_47kyh")
+
+[node name="Indicator" type="TextureRect" parent="HBoxContainer/EyePlant"]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_j6baa")
+stretch_mode = 2
+
+[node name="PoisonPlant" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="PoisonButton" type="TextureButton" parent="HBoxContainer/PoisonPlant"]
+layout_mode = 2
+mouse_filter = 1
+texture_normal = ExtResource("5_7skrx")
+
+[node name="Indicator" type="TextureRect" parent="HBoxContainer/PoisonPlant"]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_j6baa")
+stretch_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 66.0
+offset_bottom = 50.0
+
+[node name="WaterContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="WaterTitleMargin" type="MarginContainer" parent="VBoxContainer/WaterContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 2
+
+[node name="WaterTitle" type="TextureRect" parent="VBoxContainer/WaterContainer/WaterTitleMargin"]
+layout_mode = 2
+texture = SubResource("ImageTexture_v2w2d")
+
+[node name="WaterNumberMargin" type="MarginContainer" parent="VBoxContainer/WaterContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 2
+
+[node name="WaterLabel" type="RichTextLabel" parent="VBoxContainer/WaterContainer/WaterNumberMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("6_4246p")
+text = "8"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -6
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("7_lduvo")
+
+[node name="WaterSourceLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.206488, 0.149303, 0.0554689, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0.545098, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0.533333, 1)
+theme_override_fonts/font = ExtResource("6_4246p")
+theme_override_font_sizes/font_size = 1
+text = ":0"
+label_settings = SubResource("LabelSettings_7xobo")
+
+[node name="WarningIndicator" type="TextureRect" parent="."]
+offset_left = -38.0
+offset_top = -3.0
+offset_right = -6.0
+offset_bottom = 29.0
+texture = ExtResource("8_rmq0v")
+
+[node name="PauseButtonMargins" type="MarginContainer" parent="."]
+process_mode = 3
+layout_direction = 2
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -18.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = 18.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureButton" type="TextureButton" parent="PauseButtonMargins"]
+layout_mode = 2
+mouse_filter = 1
+texture_normal = ExtResource("9_mhaei")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -103.0
+offset_right = 150.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("10_gmq0o")
+region_rect = Rect2(0, 0, 3, 3)
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+script = ExtResource("11_suune")
+
+[node name="Label" type="Label" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = -38.0
+offset_right = 147.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+autowrap_mode = 3

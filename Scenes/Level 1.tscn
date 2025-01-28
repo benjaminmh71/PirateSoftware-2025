@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://brj3g4ljx7hm0"]
+[gd_scene load_steps=61 format=3 uid="uid://brj3g4ljx7hm0"]
 
 [ext_resource type="Script" path="res://Scripts/Grid.gd" id="1_23fgj"]
 [ext_resource type="Script" path="res://Scripts/CameraControl.gd" id="2_ne5ip"]
@@ -18,22 +18,15 @@
 [ext_resource type="PackedScene" uid="uid://byn1cb28q6rje" path="res://Enemies/Basic Enemy.tscn" id="9_58at5"]
 [ext_resource type="Texture2D" uid="uid://bl6i05tmkantj" path="res://Assets/toxinvines.png" id="10_23mme"]
 [ext_resource type="Texture2D" uid="uid://dx6do1yvowgdl" path="res://Assets/Sewer Walls.png" id="10_ejvhx"]
-[ext_resource type="Script" path="res://Scripts/HUD.gd" id="13_x08j0"]
 [ext_resource type="Texture2D" uid="uid://db3bo06qvpevs" path="res://Assets/fireHydrent.webp" id="13_yahkh"]
-[ext_resource type="Texture2D" uid="uid://dc5xh1aqrel4v" path="res://Assets/Vine Panel.png" id="13_ywoau"]
 [ext_resource type="Script" path="res://Scripts/Wave.gd" id="15_es430"]
 [ext_resource type="Texture2D" uid="uid://b16hn1u66yg3q" path="res://Assets/poison.png" id="16_6bfwe"]
-[ext_resource type="Texture2D" uid="uid://tqjoetivao5d" path="res://Assets/ThickVine Panel.png" id="16_gf3a0"]
-[ext_resource type="Texture2D" uid="uid://cmlu36h1k1vee" path="res://Assets/EyePlant Panel.png" id="18_fexpn"]
-[ext_resource type="Texture2D" uid="uid://ta5omakkpbgb" path="res://Assets/PoisonPlant Panel.png" id="20_wkvo4"]
-[ext_resource type="Texture2D" uid="uid://cithbjybsmpgr" path="res://Assets/Warning Indicator.png" id="21_4psir"]
 [ext_resource type="AudioStream" uid="uid://c8wxhhbx6b2qi" path="res://audio/Sounds/basic.mp3.mp3" id="22_7s1g7"]
+[ext_resource type="PackedScene" uid="uid://dptibvk11w8wy" path="res://Scenes/UI.tscn" id="22_b8hcj"]
 [ext_resource type="AudioStream" uid="uid://dy1tb6o2och6c" path="res://audio/Sounds/Background Track.mp3" id="23_ucft5"]
 [ext_resource type="AudioStream" uid="uid://cpcbmy1hsos7b" path="res://audio/Sounds/Poison.mp3.mp3" id="24_v8f3h"]
 [ext_resource type="AudioStream" uid="uid://dpe1tsw2oq54o" path="res://audio/Sounds/eyeball.mp3.mp3" id="26_nvycq"]
 [ext_resource type="AudioStream" uid="uid://q8numw2o8fin" path="res://audio/Sounds/kill.mp3.mp3" id="27_lipqu"]
-[ext_resource type="FontFile" uid="uid://omaj6a8ymybh" path="res://Assets/numbers.png" id="29_snewc"]
-[ext_resource type="Texture2D" uid="uid://caqb3y27shxax" path="res://Assets/PauseButton.png" id="30_8b6kk"]
 [ext_resource type="AudioStream" uid="uid://bxngbn6pdegqw" path="res://audio/Sounds/thick.mp3" id="33_jnkmi"]
 [ext_resource type="AudioStream" uid="uid://bl7hxyixpisaf" path="res://audio/Sounds/flame_output.mp3" id="36_bfak1"]
 [ext_resource type="Script" path="res://Scenes/Flamethrower.gd" id="37_wewev"]
@@ -2246,20 +2239,6 @@ metadata/_better_terrain = {
 "version": "0.2"
 }
 
-[sub_resource type="Image" id="Image_4m6fk"]
-data = {
-"data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 255, 255, 255, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 255, 255, 255, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 255, 255, 255, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 255, 255, 255, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 255, 255, 255, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 255, 255, 255, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 255, 255, 255, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 255, 255, 255, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 255, 255, 255, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 255, 255, 255, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 255, 255, 255, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 255, 255, 255, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 255, 255, 255, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 255, 255, 255, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 255, 255, 255, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 255, 255, 255, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 255, 255, 255, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 255, 255, 255, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 95, 205, 228, 255, 95, 205, 228, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 63, 63, 116, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-"format": "RGBA8",
-"height": 16,
-"mipmaps": false,
-"width": 48
-}
-
-[sub_resource type="ImageTexture" id="ImageTexture_whbvr"]
-image = SubResource("Image_4m6fk")
-
-[sub_resource type="LabelSettings" id="LabelSettings_0dh4e"]
-
 [node name="Grid" type="Node2D"]
 script = ExtResource("1_23fgj")
 
@@ -2445,53 +2424,53 @@ texture = ExtResource("7_oi41x")
 y_sort_enabled = true
 script = ExtResource("8_270qb")
 
-[node name="BasicEnemy" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("9_58at5")]
+[node name="BasicEnemy" parent="EnemyManager" instance=ExtResource("9_58at5")]
 position = Vector2(340, 97)
-rallyPoint = NodePath("../North")
+rallyPoint = null
 
-[node name="BasicEnemy2" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("9_58at5")]
+[node name="BasicEnemy2" parent="EnemyManager" instance=ExtResource("9_58at5")]
 position = Vector2(360, 114)
-rallyPoint = NodePath("../North")
+rallyPoint = null
 
-[node name="BasicEnemy3" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("9_58at5")]
+[node name="BasicEnemy3" parent="EnemyManager" instance=ExtResource("9_58at5")]
 position = Vector2(371, 96)
-rallyPoint = NodePath("../North")
+rallyPoint = null
 
-[node name="BasicEnemy4" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("9_58at5")]
+[node name="BasicEnemy4" parent="EnemyManager" instance=ExtResource("9_58at5")]
 position = Vector2(624, 346)
-rallyPoint = NodePath("../East")
+rallyPoint = null
 
-[node name="BasicEnemy5" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("9_58at5")]
+[node name="BasicEnemy5" parent="EnemyManager" instance=ExtResource("9_58at5")]
 position = Vector2(605, 361)
-rallyPoint = NodePath("../East")
+rallyPoint = null
 
-[node name="BasicEnemy6" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("9_58at5")]
+[node name="BasicEnemy6" parent="EnemyManager" instance=ExtResource("9_58at5")]
 position = Vector2(625, 377)
-rallyPoint = NodePath("../East")
+rallyPoint = null
 
-[node name="BasicEnemy7" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("9_58at5")]
+[node name="BasicEnemy7" parent="EnemyManager" instance=ExtResource("9_58at5")]
 position = Vector2(360, 642)
-rallyPoint = NodePath("../South")
+rallyPoint = null
 
-[node name="BasicEnemy8" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("9_58at5")]
+[node name="BasicEnemy8" parent="EnemyManager" instance=ExtResource("9_58at5")]
 position = Vector2(345, 626)
-rallyPoint = NodePath("../South")
+rallyPoint = null
 
-[node name="BasicEnemy9" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("9_58at5")]
+[node name="BasicEnemy9" parent="EnemyManager" instance=ExtResource("9_58at5")]
 position = Vector2(373, 625)
-rallyPoint = NodePath("../South")
+rallyPoint = null
 
-[node name="BasicEnemy10" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("9_58at5")]
+[node name="BasicEnemy10" parent="EnemyManager" instance=ExtResource("9_58at5")]
 position = Vector2(93, 379)
-rallyPoint = NodePath("../West")
+rallyPoint = null
 
-[node name="BasicEnemy11" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("9_58at5")]
+[node name="BasicEnemy11" parent="EnemyManager" instance=ExtResource("9_58at5")]
 position = Vector2(75, 363)
-rallyPoint = NodePath("../West")
+rallyPoint = null
 
-[node name="BasicEnemy12" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("9_58at5")]
+[node name="BasicEnemy12" parent="EnemyManager" instance=ExtResource("9_58at5")]
 position = Vector2(94, 347)
-rallyPoint = NodePath("../West")
+rallyPoint = null
 
 [node name="WaveTimer" type="Timer" parent="EnemyManager"]
 wait_time = 20.0
@@ -2529,160 +2508,7 @@ layer_0/tile_data = PackedInt32Array(1310749, 0, 0, 1376285, 0, 0, 1441821, 0, 0
 [node name="WaterTimer" type="Timer" parent="."]
 autostart = true
 
-[node name="UI" type="CanvasLayer" parent="."]
-script = ExtResource("13_x08j0")
-metadata/_edit_use_anchors_ = true
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI"]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -38.0
-offset_top = -16.0
-offset_right = 38.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_vertical = 8
-
-[node name="BasicVine" type="PanelContainer" parent="UI/HBoxContainer"]
-layout_mode = 2
-mouse_filter = 1
-
-[node name="BasicButton" type="TextureButton" parent="UI/HBoxContainer/BasicVine"]
-layout_mode = 2
-mouse_filter = 1
-texture_normal = ExtResource("13_ywoau")
-texture_pressed = ExtResource("13_ywoau")
-
-[node name="Indicator" type="TextureRect" parent="UI/HBoxContainer/BasicVine"]
-layout_mode = 2
-texture = ExtResource("7_oi41x")
-stretch_mode = 2
-
-[node name="ThickVine" type="PanelContainer" parent="UI/HBoxContainer"]
-layout_mode = 2
-mouse_filter = 1
-
-[node name="ThickButton" type="TextureButton" parent="UI/HBoxContainer/ThickVine"]
-layout_mode = 2
-mouse_filter = 1
-texture_normal = ExtResource("16_gf3a0")
-
-[node name="Indicator" type="TextureRect" parent="UI/HBoxContainer/ThickVine"]
-visible = false
-layout_mode = 2
-texture = ExtResource("7_oi41x")
-stretch_mode = 2
-
-[node name="EyePlant" type="PanelContainer" parent="UI/HBoxContainer"]
-layout_mode = 2
-mouse_filter = 1
-
-[node name="EyeButton" type="TextureButton" parent="UI/HBoxContainer/EyePlant"]
-layout_mode = 2
-mouse_filter = 1
-texture_normal = ExtResource("18_fexpn")
-
-[node name="Indicator" type="TextureRect" parent="UI/HBoxContainer/EyePlant"]
-visible = false
-layout_mode = 2
-texture = ExtResource("7_oi41x")
-stretch_mode = 2
-
-[node name="PoisonPlant" type="PanelContainer" parent="UI/HBoxContainer"]
-layout_mode = 2
-mouse_filter = 1
-
-[node name="PoisonButton" type="TextureButton" parent="UI/HBoxContainer/PoisonPlant"]
-layout_mode = 2
-mouse_filter = 1
-texture_normal = ExtResource("20_wkvo4")
-
-[node name="Indicator" type="TextureRect" parent="UI/HBoxContainer/PoisonPlant"]
-visible = false
-layout_mode = 2
-texture = ExtResource("7_oi41x")
-stretch_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
-offset_right = 66.0
-offset_bottom = 50.0
-
-[node name="WaterContainer" type="HBoxContainer" parent="UI/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 4
-
-[node name="WaterTitleMargin" type="MarginContainer" parent="UI/VBoxContainer/WaterContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 2
-
-[node name="WaterTitle" type="TextureRect" parent="UI/VBoxContainer/WaterContainer/WaterTitleMargin"]
-layout_mode = 2
-texture = SubResource("ImageTexture_whbvr")
-
-[node name="WaterNumberMargin" type="MarginContainer" parent="UI/VBoxContainer/WaterContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 2
-
-[node name="WaterLabel" type="RichTextLabel" parent="UI/VBoxContainer/WaterContainer/WaterNumberMargin"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_fonts/normal_font = ExtResource("29_snewc")
-text = "8"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = -6
-
-[node name="TextureRect" type="TextureRect" parent="UI/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("13_yahkh")
-
-[node name="WaterSourceLabel" type="Label" parent="UI/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.206488, 0.149303, 0.0554689, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0.545098, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0.533333, 1)
-theme_override_fonts/font = ExtResource("29_snewc")
-theme_override_font_sizes/font_size = 1
-text = ":0"
-label_settings = SubResource("LabelSettings_0dh4e")
-
-[node name="WarningIndicator" type="TextureRect" parent="UI"]
-offset_left = -38.0
-offset_top = -3.0
-offset_right = -6.0
-offset_bottom = 29.0
-texture = ExtResource("21_4psir")
-
-[node name="PauseButtonMargins" type="MarginContainer" parent="UI"]
-process_mode = 3
-layout_direction = 2
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -18.0
-offset_top = 2.0
-offset_right = -2.0
-offset_bottom = 18.0
-grow_horizontal = 0
-theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 0
-theme_override_constants/margin_bottom = 0
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureButton" type="TextureButton" parent="UI/PauseButtonMargins"]
-layout_mode = 2
-mouse_filter = 1
-texture_normal = ExtResource("30_8b6kk")
+[node name="UI" parent="." instance=ExtResource("22_b8hcj")]
 
 [node name="Sounds" type="Node2D" parent="."]
 
@@ -2715,13 +2541,3 @@ stream = ExtResource("38_2i35e")
 
 [connection signal="timeout" from="EnemyManager/WaveTimer" to="EnemyManager" method="_on_wave_timer_timeout"]
 [connection signal="timeout" from="WaterTimer" to="." method="_on_water_timer_timeout"]
-[connection signal="mouse_entered" from="UI/HBoxContainer" to="." method="_on_h_box_container_mouse_entered"]
-[connection signal="mouse_exited" from="UI/HBoxContainer" to="." method="_on_h_box_container_mouse_exited"]
-[connection signal="pressed" from="UI/HBoxContainer/BasicVine/BasicButton" to="UI" method="_on_basic_button_pressed"]
-[connection signal="pressed" from="UI/HBoxContainer/ThickVine/ThickButton" to="UI" method="_on_thick_button_pressed"]
-[connection signal="pressed" from="UI/HBoxContainer/EyePlant/EyeButton" to="UI" method="_on_eye_button_pressed"]
-[connection signal="pressed" from="UI/HBoxContainer/PoisonPlant/PoisonButton" to="UI" method="_on_poison_button_pressed"]
-[connection signal="gui_input" from="UI/PauseButtonMargins" to="." method="_on_pause_button_margins_gui_input"]
-[connection signal="mouse_entered" from="UI/PauseButtonMargins" to="." method="_on_pause_button_margins_mouse_entered"]
-[connection signal="mouse_exited" from="UI/PauseButtonMargins" to="." method="_on_pause_button_margins_mouse_exited"]
-[connection signal="pressed" from="UI/PauseButtonMargins/TextureButton" to="UI" method="_on_texture_button_pressed"]

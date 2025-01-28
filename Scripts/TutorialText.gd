@@ -7,6 +7,12 @@ var index = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if LevelManager.level != 0:
+		print("hidden")
+		visible = false
+		return
+	
+	visible = true
 	if index == 0:
 		label.text = "Your vines can't see very far normally. Press 3 and place an eye vine to reveal the level."
 		for v in grid.vines:
