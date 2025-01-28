@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://c38rb86vah7q4"]
+[gd_scene load_steps=58 format=3 uid="uid://c38rb86vah7q4"]
 
 [ext_resource type="Script" path="res://Scripts/Grid.gd" id="1_jmeyu"]
 [ext_resource type="Script" path="res://Scripts/CameraControl.gd" id="2_77psr"]
@@ -26,7 +26,6 @@
 [ext_resource type="AudioStream" uid="uid://c8wxhhbx6b2qi" path="res://audio/Sounds/basic.mp3.mp3" id="30_4w06j"]
 [ext_resource type="AudioStream" uid="uid://dy1tb6o2och6c" path="res://audio/Sounds/Background Track.mp3" id="31_hnpdm"]
 [ext_resource type="AudioStream" uid="uid://cpcbmy1hsos7b" path="res://audio/Sounds/Poison.mp3.mp3" id="32_shm5n"]
-[ext_resource type="AudioStream" path="res://audio/Sounds/thick.mp3.mp3" id="33_pnhty"]
 [ext_resource type="AudioStream" uid="uid://dpe1tsw2oq54o" path="res://audio/Sounds/eyeball.mp3.mp3" id="34_4fovh"]
 [ext_resource type="AudioStream" uid="uid://q8numw2o8fin" path="res://audio/Sounds/kill.mp3.mp3" id="35_svjlk"]
 
@@ -2433,73 +2432,73 @@ position = Vector2(504, 504)
 [node name="East" type="Node2D" parent="EnemyManager"]
 position = Vector2(792, 504)
 
-[node name="BasicEnemy" parent="EnemyManager" instance=ExtResource("18_d06o8")]
+[node name="BasicEnemy" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("18_d06o8")]
 position = Vector2(552, 568)
-rallyPoint = null
+rallyPoint = NodePath("../SW")
 
-[node name="BasicEnemy2" parent="EnemyManager" instance=ExtResource("18_d06o8")]
+[node name="BasicEnemy2" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("18_d06o8")]
 position = Vector2(584, 568)
-rallyPoint = null
+rallyPoint = NodePath("../SW")
 
 [node name="GunEnemy" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_iaa8n")]
 position = Vector2(568, 552)
 rallyPoint = NodePath("../SW")
 
-[node name="BasicEnemy3" parent="EnemyManager" instance=ExtResource("18_d06o8")]
+[node name="BasicEnemy3" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("18_d06o8")]
 position = Vector2(488, 504)
-rallyPoint = null
+rallyPoint = NodePath("../West")
 
-[node name="BasicEnemy4" parent="EnemyManager" instance=ExtResource("18_d06o8")]
+[node name="BasicEnemy4" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("18_d06o8")]
 position = Vector2(520, 504)
-rallyPoint = null
+rallyPoint = NodePath("../West")
 
 [node name="GunEnemy2" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_iaa8n")]
 position = Vector2(504, 488)
 rallyPoint = NodePath("../West")
 
-[node name="BasicEnemy5" parent="EnemyManager" instance=ExtResource("18_d06o8")]
+[node name="BasicEnemy5" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("18_d06o8")]
 position = Vector2(552, 440)
-rallyPoint = null
+rallyPoint = NodePath("../NW")
 
-[node name="BasicEnemy6" parent="EnemyManager" instance=ExtResource("18_d06o8")]
+[node name="BasicEnemy6" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("18_d06o8")]
 position = Vector2(584, 440)
-rallyPoint = null
+rallyPoint = NodePath("../NW")
 
 [node name="GunEnemy3" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_iaa8n")]
 position = Vector2(568, 424)
 rallyPoint = NodePath("../NW")
 
-[node name="BasicEnemy7" parent="EnemyManager" instance=ExtResource("18_d06o8")]
+[node name="BasicEnemy7" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("18_d06o8")]
 position = Vector2(712, 440)
-rallyPoint = null
+rallyPoint = NodePath("../NE")
 
-[node name="BasicEnemy8" parent="EnemyManager" instance=ExtResource("18_d06o8")]
+[node name="BasicEnemy8" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("18_d06o8")]
 position = Vector2(744, 440)
-rallyPoint = null
+rallyPoint = NodePath("../NE")
 
 [node name="GunEnemy4" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_iaa8n")]
 position = Vector2(728, 424)
 rallyPoint = NodePath("../NE")
 
-[node name="BasicEnemy9" parent="EnemyManager" instance=ExtResource("18_d06o8")]
+[node name="BasicEnemy9" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("18_d06o8")]
 position = Vector2(776, 504)
-rallyPoint = null
+rallyPoint = NodePath("../East")
 
-[node name="BasicEnemy10" parent="EnemyManager" instance=ExtResource("18_d06o8")]
+[node name="BasicEnemy10" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("18_d06o8")]
 position = Vector2(808, 504)
-rallyPoint = null
+rallyPoint = NodePath("../East")
 
 [node name="GunEnemy5" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_iaa8n")]
 position = Vector2(792, 488)
 rallyPoint = NodePath("../East")
 
-[node name="BasicEnemy11" parent="EnemyManager" instance=ExtResource("18_d06o8")]
+[node name="BasicEnemy11" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("18_d06o8")]
 position = Vector2(712, 568)
-rallyPoint = null
+rallyPoint = NodePath("../SE")
 
-[node name="BasicEnemy12" parent="EnemyManager" instance=ExtResource("18_d06o8")]
+[node name="BasicEnemy12" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("18_d06o8")]
 position = Vector2(744, 568)
-rallyPoint = null
+rallyPoint = NodePath("../SE")
 
 [node name="GunEnemy6" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_iaa8n")]
 position = Vector2(728, 552)
@@ -2528,7 +2527,6 @@ stream = ExtResource("31_hnpdm")
 stream = ExtResource("32_shm5n")
 
 [node name="Thick" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource("33_pnhty")
 
 [node name="Eyeball" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("34_4fovh")
