@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://cw6m81wdbc3ky"]
+[gd_scene load_steps=50 format=3 uid="uid://cw6m81wdbc3ky"]
 
 [ext_resource type="Script" path="res://Scripts/Grid.gd" id="1_ru5nn"]
 [ext_resource type="Script" path="res://Scripts/CameraControl.gd" id="2_631nv"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://bvy0ghl8sg4ad" path="res://Assets/TilePlacementIndicator.png" id="16_xept2"]
 [ext_resource type="Script" path="res://Scripts/EnemyManager.gd" id="17_5fa0n"]
 [ext_resource type="Script" path="res://Scripts/Wave.gd" id="19_pp5pt"]
+[ext_resource type="PackedScene" uid="uid://cg6defi6a1gea" path="res://Enemies/Gun Enemy.tscn" id="20_7qthl"]
 [ext_resource type="Texture2D" uid="uid://cr6rdi3o0lmp5" path="res://Assets/Fog.png" id="20_atnke"]
 [ext_resource type="Texture2D" uid="uid://b16hn1u66yg3q" path="res://Assets/poison.png" id="21_hin2j"]
 [ext_resource type="PackedScene" uid="uid://dptibvk11w8wy" path="res://Scenes/UI.tscn" id="22_mpbjs"]
@@ -2206,8 +2207,8 @@ metadata/_better_terrain = {
 
 [node name="Grid" type="Node2D"]
 script = ExtResource("1_ru5nn")
-width = 55
-height = 57
+width = 57
+height = 59
 
 [node name="Camera2D" type="Camera2D" parent="."]
 process_mode = 3
@@ -2297,6 +2298,158 @@ position = Vector2(296, 904)
 
 [node name="SpawnPoint2" type="Node2D" parent="EnemyManager"]
 position = Vector2(872, 296)
+
+[node name="GunEnemy" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_7qthl")]
+position = Vector2(152, 168)
+rallyPoint = NodePath("../NW")
+
+[node name="GunEnemy2" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_7qthl")]
+position = Vector2(168, 184)
+rallyPoint = NodePath("../NW")
+
+[node name="GunEnemy3" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_7qthl")]
+position = Vector2(152, 200)
+rallyPoint = NodePath("../NW")
+
+[node name="GunEnemy4" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_7qthl")]
+position = Vector2(136, 184)
+rallyPoint = NodePath("../NW")
+
+[node name="GunEnemy5" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_7qthl")]
+position = Vector2(440, 88)
+rallyPoint = NodePath("../North")
+
+[node name="GunEnemy6" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_7qthl")]
+position = Vector2(424, 104)
+rallyPoint = NodePath("../North")
+
+[node name="GunEnemy7" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_7qthl")]
+position = Vector2(440, 120)
+rallyPoint = NodePath("../North")
+
+[node name="GunEnemy8" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_7qthl")]
+position = Vector2(456, 104)
+rallyPoint = NodePath("../North")
+
+[node name="GunEnemy9" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_7qthl")]
+position = Vector2(760, 104)
+rallyPoint = NodePath("../NE")
+
+[node name="GunEnemy10" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_7qthl")]
+position = Vector2(776, 88)
+rallyPoint = NodePath("../NE")
+
+[node name="GunEnemy11" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_7qthl")]
+position = Vector2(792, 104)
+rallyPoint = NodePath("../NE")
+
+[node name="GunEnemy12" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_7qthl")]
+position = Vector2(776, 120)
+rallyPoint = NodePath("../NE")
+
+[node name="GunEnemy13" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_7qthl")]
+position = Vector2(776, 376)
+rallyPoint = NodePath("../East")
+
+[node name="GunEnemy14" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_7qthl")]
+position = Vector2(760, 392)
+rallyPoint = NodePath("../East")
+
+[node name="GunEnemy15" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_7qthl")]
+position = Vector2(776, 408)
+rallyPoint = NodePath("../East")
+
+[node name="GunEnemy16" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_7qthl")]
+position = Vector2(792, 392)
+rallyPoint = NodePath("../East")
+
+[node name="GunEnemy17" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_7qthl")]
+position = Vector2(776, 696)
+rallyPoint = NodePath("../SE")
+
+[node name="GunEnemy18" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_7qthl")]
+position = Vector2(760, 712)
+rallyPoint = NodePath("../SE")
+
+[node name="GunEnemy19" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_7qthl")]
+position = Vector2(776, 728)
+rallyPoint = NodePath("../SE")
+
+[node name="GunEnemy20" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_7qthl")]
+position = Vector2(792, 712)
+rallyPoint = NodePath("../SE")
+
+[node name="GunEnemy21" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_7qthl")]
+position = Vector2(472, 792)
+rallyPoint = NodePath("../South")
+
+[node name="GunEnemy22" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_7qthl")]
+position = Vector2(488, 808)
+rallyPoint = NodePath("../South")
+
+[node name="GunEnemy23" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_7qthl")]
+position = Vector2(472, 824)
+rallyPoint = NodePath("../South")
+
+[node name="GunEnemy24" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_7qthl")]
+position = Vector2(456, 808)
+rallyPoint = NodePath("../South")
+
+[node name="GunEnemy25" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_7qthl")]
+position = Vector2(184, 744)
+rallyPoint = NodePath("../SW")
+
+[node name="GunEnemy26" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_7qthl")]
+position = Vector2(168, 728)
+rallyPoint = NodePath("../SW")
+
+[node name="GunEnemy27" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_7qthl")]
+position = Vector2(152, 744)
+rallyPoint = NodePath("../SW")
+
+[node name="GunEnemy28" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_7qthl")]
+position = Vector2(168, 760)
+rallyPoint = NodePath("../SW")
+
+[node name="GunEnemy29" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_7qthl")]
+position = Vector2(72, 424)
+rallyPoint = NodePath("../West")
+
+[node name="GunEnemy30" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_7qthl")]
+position = Vector2(88, 440)
+rallyPoint = NodePath("../West")
+
+[node name="GunEnemy31" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_7qthl")]
+position = Vector2(72, 456)
+rallyPoint = NodePath("../West")
+
+[node name="GunEnemy32" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("20_7qthl")]
+position = Vector2(56, 440)
+rallyPoint = NodePath("../West")
+
+[node name="NW" type="Node2D" parent="EnemyManager"]
+position = Vector2(152, 184)
+
+[node name="North" type="Node2D" parent="EnemyManager"]
+position = Vector2(440, 104)
+
+[node name="NE" type="Node2D" parent="EnemyManager"]
+position = Vector2(776, 104)
+
+[node name="East" type="Node2D" parent="EnemyManager"]
+position = Vector2(776, 392)
+
+[node name="SE" type="Node2D" parent="EnemyManager"]
+position = Vector2(776, 712)
+
+[node name="South" type="Node2D" parent="EnemyManager"]
+position = Vector2(472, 808)
+
+[node name="SW" type="Node2D" parent="EnemyManager"]
+position = Vector2(168, 744)
+
+[node name="West" type="Node2D" parent="EnemyManager"]
+position = Vector2(72, 440)
 
 [node name="Fog" type="TileMap" parent="."]
 visible = false
