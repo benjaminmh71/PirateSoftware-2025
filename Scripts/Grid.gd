@@ -57,6 +57,8 @@ func _ready():
 				place(i, j, Fence)
 			if BetterTerrain.get_cell(tilemap, 0, Vector2i(i,j)) == 10:
 				place(i, j, SewerWall)
+			if BetterTerrain.get_cell(tilemap, 0, Vector2i(i,j)) == 11:
+				place(i, j, MetalWall)
 			if BetterTerrain.get_cell(tilemap, 0, Vector2i(i,j)) == 1:
 				place(i, j, BasicVine, true)
 			if BetterTerrain.get_cell(tilemap, 0, Vector2i(i,j)) == 2:

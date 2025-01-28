@@ -8,7 +8,6 @@ var index = 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if LevelManager.level != 0:
-		print("hidden")
 		visible = false
 		return
 	
