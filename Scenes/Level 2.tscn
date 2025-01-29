@@ -22,8 +22,8 @@
 [ext_resource type="Texture2D" uid="uid://cr6rdi3o0lmp5" path="res://Assets/Fog.png" id="20_456kw"]
 [ext_resource type="PackedScene" uid="uid://cg6defi6a1gea" path="res://Enemies/Gun Enemy.tscn" id="20_iaa8n"]
 [ext_resource type="Texture2D" uid="uid://b16hn1u66yg3q" path="res://Assets/poison.png" id="21_3hqkw"]
-[ext_resource type="PackedScene" path="res://Scenes/UI.tscn" id="23_w1uvm"]
-[ext_resource type="PackedScene" uid="uid://csw5r4243eddj" path="res://Scenes/Sounds.tscn" id="24_gogqv"]
+[ext_resource type="PackedScene" uid="uid://dptibvk11w8wy" path="res://Scenes/UI.tscn" id="23_w1uvm"]
+[ext_resource type="PackedScene" uid="uid://ci445lmec0vl" path="res://Scenes/Sounds.tscn" id="24_gogqv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tlpgq"]
 texture = ExtResource("3_jkjmh")

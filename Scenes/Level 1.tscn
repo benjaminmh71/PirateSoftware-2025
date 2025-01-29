@@ -21,8 +21,8 @@
 [ext_resource type="Texture2D" uid="uid://db3bo06qvpevs" path="res://Assets/fireHydrent.webp" id="13_yahkh"]
 [ext_resource type="Script" path="res://Scripts/Wave.gd" id="15_es430"]
 [ext_resource type="Texture2D" uid="uid://b16hn1u66yg3q" path="res://Assets/poison.png" id="16_6bfwe"]
-[ext_resource type="PackedScene" path="res://Scenes/UI.tscn" id="22_b8hcj"]
-[ext_resource type="PackedScene" uid="uid://csw5r4243eddj" path="res://Scenes/Sounds.tscn" id="23_liufc"]
+[ext_resource type="PackedScene" uid="uid://dptibvk11w8wy" path="res://Scenes/UI.tscn" id="22_b8hcj"]
+[ext_resource type="PackedScene" uid="uid://ci445lmec0vl" path="res://Scenes/Sounds.tscn" id="23_liufc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tlpgq"]
 texture = ExtResource("3_ueyml")
@@ -2231,7 +2231,7 @@ metadata/_better_terrain = {
 "version": "0.2"
 }
 
-[node name="Grid2" type="Node2D"]
+[node name="Grid" type="Node2D"]
 script = ExtResource("1_23fgj")
 
 [node name="Camera2D" type="Camera2D" parent="."]

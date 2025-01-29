@@ -1,7 +1,24 @@
-[gd_scene load_steps=21 format=3 uid="uid://cg6defi6a1gea"]
+[gd_scene load_steps=26 format=3 uid="uid://cg6defi6a1gea"]
 
 [ext_resource type="Script" path="res://Scripts/GunEnemy.gd" id="1_8t728"]
+[ext_resource type="Texture2D" uid="uid://bedyj2usa36jj" path="res://Assets/Swat Attack.png" id="2_ds54h"]
 [ext_resource type="Texture2D" uid="uid://cdh28wb4joq0h" path="res://Assets/swat.png" id="2_gso87"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6erhh"]
+atlas = ExtResource("2_ds54h")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2l17"]
+atlas = ExtResource("2_ds54h")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8itfh"]
+atlas = ExtResource("2_ds54h")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dc64h"]
+atlas = ExtResource("2_ds54h")
+region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_co0si"]
 atlas = ExtResource("2_gso87")
@@ -69,6 +86,38 @@ region = Rect2(176, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_88wmh"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6erhh")
+}],
+"loop": true,
+"name": &"shoot_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2l17")
+}],
+"loop": true,
+"name": &"shoot_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8itfh")
+}],
+"loop": true,
+"name": &"shoot_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dc64h")
+}],
+"loop": true,
+"name": &"shoot_up",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_co0si")
@@ -173,7 +222,7 @@ script = ExtResource("1_8t728")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_88wmh")
-animation = &"walk_up"
+animation = &"stand_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
