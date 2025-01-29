@@ -2196,8 +2196,6 @@ metadata/_better_terrain = {
 
 [node name="Grid" type="Node2D"]
 script = ExtResource("1_s6nto")
-width = null
-height = null
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(144, 81)

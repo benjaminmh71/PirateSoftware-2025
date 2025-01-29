@@ -1,7 +1,7 @@
 extends Node
 
 var level = 0
-var finalLevel = 2
+var finalLevel = 4
 
 func get_local_scene_root(p_node : Node) -> Node:
 	while(p_node.get_parent().get_parent() is Node):

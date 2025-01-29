@@ -2233,8 +2233,6 @@ metadata/_better_terrain = {
 
 [node name="Grid" type="Node2D"]
 script = ExtResource("1_23fgj")
-width = null
-height = null
 
 [node name="Camera2D" type="Camera2D" parent="."]
 process_mode = 3

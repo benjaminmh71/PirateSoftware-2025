@@ -36,13 +36,14 @@ func _physics_process(_delta):
 				poisonTimer.start()
 	
 	# Movement:
-	closestVine = null
-	dist = INF
-	for v in grid.vines.keys():
-		var length = (global_position - grid.coord_to_global(Vector2i(v.x, v.y))).length()
-		if length < dist:
-			closestVine = v
-			dist = length
+	if navTimer.is_stopped():
+		closestVine = null
+		dist = INF
+		for v in grid.vines.keys():
+			var length = (global_position - grid.coord_to_global(Vector2i(v.x, v.y))).length()
+			if length < dist:
+				closestVine = v
+				dist = length
 	if closestVine != null and dist <= rallyActivateDist:
 		for e in get_parent().get_children():
 			if e is Enemy and e != self: 
@@ -51,7 +52,7 @@ func _physics_process(_delta):
 	
 	# Check los for ranged enemies:
 	var los = !ranged
-	if ranged and closestVine != null:
+	if ranged and closestVine != null and dist <= attackRange:
 		var space_state = get_world_2d().direct_space_state
 		var query = PhysicsRayQueryParameters2D.create(global_position, 
 			grid.coord_to_global(Vector2i(closestVine.x, closestVine.y)))
