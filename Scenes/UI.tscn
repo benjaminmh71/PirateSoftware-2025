@@ -177,7 +177,7 @@ theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureButton" type="TextureButton" parent="PauseButtonMargins"]
+[node name="PauseButton" type="TextureButton" parent="PauseButtonMargins"]
 layout_mode = 2
 mouse_filter = 1
 texture_normal = ExtResource("9_mhaei")
@@ -222,3 +222,4 @@ autowrap_mode = 3
 [connection signal="pressed" from="HBoxContainer/ThickVine/ThickButton" to="." method="_on_thick_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/EyePlant/EyeButton" to="." method="_on_eye_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/PoisonPlant/PoisonButton" to="." method="_on_poison_button_pressed"]
+[connection signal="pressed" from="PauseButtonMargins/PauseButton" to="." method="_on_pause_button_pressed"]
