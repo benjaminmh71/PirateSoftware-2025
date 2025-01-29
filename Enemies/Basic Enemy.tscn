@@ -1,8 +1,13 @@
 [gd_scene load_steps=22 format=3 uid="uid://byn1cb28q6rje"]
 
 [ext_resource type="Script" path="res://Scripts/BasicEnemy.gd" id="1_1mks2"]
+<<<<<<< HEAD
 [ext_resource type="Texture2D" path="res://Assets/emnemysheet.png" id="2_f78p7"]
 [ext_resource type="PackedScene" uid="uid://b8bej3aimunmu" path="res://Assets/flame.tscn" id="3_g8yg2"]
+=======
+[ext_resource type="Texture2D" uid="uid://dghpqr2jcs81e" path="res://Assets/emnemysheet.png" id="2_f78p7"]
+[ext_resource type="PackedScene" path="res://Assets/flame.tscn" id="3_g8yg2"]
+>>>>>>> 1fb84e850e39de51d3036c84dc0508301456b2ee
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lf730"]
 atlas = ExtResource("2_f78p7")
