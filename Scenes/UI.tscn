@@ -26,7 +26,6 @@ data = {
 image = SubResource("Image_y087c")
 
 [sub_resource type="LabelSettings" id="LabelSettings_7xobo"]
-font_color = Color(0, 0, 0, 1)
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_idh0n")
