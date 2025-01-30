@@ -3074,6 +3074,7 @@ layer_0/tile_data = PackedInt32Array(1310749, 0, 0, 1376285, 0, 0, 1441821, 0, 0
 autostart = true
 
 [node name="UI" parent="." instance=ExtResource("22_c72xg")]
+waterSourceTexture = "res://Assets/Pipe.png"
 
 [node name="Sounds" parent="." instance=ExtResource("23_add0b")]
 

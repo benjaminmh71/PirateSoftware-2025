@@ -10,10 +10,14 @@ var index = 0
 @onready var poisonPlantIndicator = get_node("HBoxContainer/PoisonPlant/Indicator")
 @onready var playPauseButton = get_node("PauseButtonMargins/PauseButton")
 @onready var clickSound = get_node("../Sounds/Click")
+@onready var waterSourceRect: TextureRect = get_node("VBoxContainer/HBoxContainer/TextureRect")
 var playButtonTextureArray = [load("res://Assets/PauseButton.png"),load("res://Assets/PlayButton.png")]
 var playButtonBool = true
+
+@export var waterSourceTexture = "res://Assets/fireHydrent.webp"
+
 func _ready():
-	pass # Replace with function body.
+	waterSourceRect.texture = load(waterSourceTexture)
 
 
 func _process(delta):
