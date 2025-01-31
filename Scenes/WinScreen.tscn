@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://crk6d5wwuyfn1"]
+[gd_scene load_steps=4 format=3 uid="uid://crk6d5wwuyfn1"]
 
 [ext_resource type="Script" path="res://Scripts/ReloadButton.gd" id="1_d87h0"]
+[ext_resource type="Texture2D" uid="uid://bkp0s7vh1lpkl" path="res://Assets/You Win.png" id="1_n8ubj"]
+[ext_resource type="Texture2D" uid="uid://2g7sm6ett1ss" path="res://Assets/Next Level.png" id="2_ijny5"]
 
 [node name="WinScreen" type="Control"]
 layout_mode = 3
@@ -27,13 +29,16 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "You win!"
+size_flags_horizontal = 4
+texture = ExtResource("1_n8ubj")
+stretch_mode = 2
 
-[node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Button" type="TextureButton" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "Next Level"
+size_flags_horizontal = 4
+texture_normal = ExtResource("2_ijny5")
 script = ExtResource("1_d87h0")
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="CenterContainer/VBoxContainer/Button" method="_on_pressed"]
