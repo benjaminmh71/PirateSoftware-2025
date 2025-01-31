@@ -2236,14 +2236,17 @@ texture = ExtResource("16_46ipa")
 y_sort_enabled = true
 script = ExtResource("17_5xabi")
 
-[node name="BasicEnemy" parent="EnemyManager" instance=ExtResource("18_a8kjr")]
+[node name="BasicEnemy" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("18_a8kjr")]
 position = Vector2(341, 168)
+rallyPoint = NodePath("../North")
 
-[node name="BasicEnemy2" parent="EnemyManager" instance=ExtResource("18_a8kjr")]
+[node name="BasicEnemy2" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("18_a8kjr")]
 position = Vector2(361, 185)
+rallyPoint = NodePath("../North")
 
-[node name="BasicEnemy3" parent="EnemyManager" instance=ExtResource("18_a8kjr")]
+[node name="BasicEnemy3" parent="EnemyManager" node_paths=PackedStringArray("rallyPoint") instance=ExtResource("18_a8kjr")]
 position = Vector2(372, 167)
+rallyPoint = NodePath("../North")
 
 [node name="WaveTimer" type="Timer" parent="EnemyManager"]
 wait_time = 1e+07
