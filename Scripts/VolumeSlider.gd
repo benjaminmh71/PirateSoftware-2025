@@ -1,5 +1,11 @@
 extends HSlider
 
-
-func _on_drag_ended(value_changed):
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value_changed)
+func _ready():
+	$".".value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")))
+	
+func _on_value_changed(value):
+	print(value)
+	AudioServer.set_bus_volume_db(
+		AudioServer.get_bus_index("Master"),
+		linear_to_db(value)
+	)

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/BasicEnemy.gd" id="1_1mks2"]
 [ext_resource type="Texture2D" path="res://Assets/emnemysheet.png" id="2_f78p7"]
-[ext_resource type="PackedScene" uid="uid://b8bej3aimunmu" path="res://Assets/flame.tscn" id="3_g8yg2"]
+[ext_resource type="PackedScene" path="res://Assets/flame.tscn" id="3_g8yg2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lf730"]
 atlas = ExtResource("2_f78p7")
