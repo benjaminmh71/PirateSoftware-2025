@@ -8,9 +8,10 @@ var index = 0
 @onready var thickVineIndicator = get_node("HBoxContainer/ThickVine/Indicator")
 @onready var eyePlantIndicator = get_node("HBoxContainer/EyePlant/Indicator")
 @onready var poisonPlantIndicator = get_node("HBoxContainer/PoisonPlant/Indicator")
-@onready var playPauseButton = get_node("PauseButtonMargins/PauseButton")
+@onready var playPauseButton = get_node("PauseButtonMargins/VBoxContainer/PauseButton")
 @onready var clickSound = get_node("../Sounds/Click")
 @onready var waterSourceRect: TextureRect = get_node("VBoxContainer/HBoxContainer/TextureRect")
+@onready var resetConfirmation = get_node("ResetConfirmation")
 var playButtonTextureArray = [load("res://Assets/PauseButton.png"),load("res://Assets/PlayButton.png")]
 var playButtonBool = true
 
@@ -76,3 +77,15 @@ func _on_pause_button_pressed():
 		playButtonBool = !playButtonBool
 		clickSound.play()
 		get_tree().paused = false
+
+
+func _on_reset_button_pressed():
+	resetConfirmation.visible = true
+
+
+func _on_yes_button_pressed():
+	LevelManager.reloadLevel(self)
+
+
+func _on_no_button_pressed():
+	resetConfirmation.visible = false
