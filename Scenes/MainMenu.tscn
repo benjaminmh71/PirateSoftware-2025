@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://o2yri03r5ao8" path="res://Assets/TitleScreen.png" id="1_1di7p"]
 [ext_resource type="Script" path="res://Scripts/StartButton.gd" id="1_s62mr"]
-[ext_resource type="Script" path="res://Scripts/QuitButton.gd" id="2_e6cko"]
 [ext_resource type="Script" path="res://Scripts/OptionsButton.gd" id="2_jqcpv"]
 [ext_resource type="Texture2D" uid="uid://n04egsgwuuy4" path="res://Assets/CommenceGrowth.png" id="2_rh5tg"]
 [ext_resource type="Texture2D" uid="uid://bl15o72a580ao" path="res://Assets/Options.png" id="4_2xcia"]
-[ext_resource type="Texture2D" uid="uid://6q6p84iw6vjl" path="res://Assets/Quit.png" id="6_864rc"]
+[ext_resource type="Texture2D" uid="uid://cog4u713uwfrd" path="res://Assets/Credits.png" id="6_mye22"]
+[ext_resource type="Script" path="res://Scenes/Credits Button.gd" id="7_k2wdc"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -51,14 +51,14 @@ layout_mode = 2
 texture_normal = ExtResource("4_2xcia")
 script = ExtResource("2_jqcpv")
 
-[node name="CenterContainer3" type="CenterContainer" parent="VBoxContainer"]
+[node name="CreditsContainer" type="CenterContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="QuitButton" type="TextureButton" parent="VBoxContainer/CenterContainer3"]
+[node name="Credits Button" type="TextureButton" parent="VBoxContainer/CreditsContainer"]
 layout_mode = 2
-texture_normal = ExtResource("6_864rc")
-script = ExtResource("2_e6cko")
+texture_normal = ExtResource("6_mye22")
+script = ExtResource("7_k2wdc")
 
 [connection signal="pressed" from="VBoxContainer/CenterContainer/StartButton" to="VBoxContainer/CenterContainer/StartButton" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/CenterContainer2/OptionsButton" to="VBoxContainer/CenterContainer2/OptionsButton" method="_on_pressed"]
-[connection signal="pressed" from="VBoxContainer/CenterContainer3/QuitButton" to="VBoxContainer/CenterContainer3/QuitButton" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/CreditsContainer/Credits Button" to="VBoxContainer/CreditsContainer/Credits Button" method="_on_pressed"]

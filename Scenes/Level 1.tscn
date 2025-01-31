@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://db3bo06qvpevs" path="res://Assets/fireHydrent.webp" id="13_yahkh"]
 [ext_resource type="Script" path="res://Scripts/Wave.gd" id="15_es430"]
 [ext_resource type="Texture2D" uid="uid://b16hn1u66yg3q" path="res://Assets/poison.png" id="16_6bfwe"]
-[ext_resource type="PackedScene" uid="uid://b55dgq7j1r0vt" path="res://Scenes/UI.tscn" id="22_b8hcj"]
+[ext_resource type="PackedScene" path="res://Scenes/UI.tscn" id="22_b8hcj"]
 [ext_resource type="PackedScene" uid="uid://csw5r4243eddj" path="res://Scenes/Sounds.tscn" id="23_liufc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tlpgq"]
